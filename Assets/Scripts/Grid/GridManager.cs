@@ -17,12 +17,14 @@ namespace Assets.Scripts.Grid
 
         private void SpawnGrid()
         {
+            int shiftX = Mathf.RoundToInt(gridSize.x / 2f);
+            int shiftY = Mathf.RoundToInt(gridSize.y / 2f);
             for (int x = 0; x < gridSize.x; x++)
             {
                 for (int y = 0; y < gridSize.y; y++)
                 {
                     Tile tile = Instantiate(tilePrefab, gridContainer);
-                    tile.Initialize(new Vector2(x, y));
+                    tile.Initialize(new Vector2(x - shiftX, y - shiftY));
                 }
             }
         }
