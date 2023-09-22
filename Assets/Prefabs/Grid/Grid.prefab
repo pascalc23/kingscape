@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4469085103409898038}
   - component: {fileID: 4521761071748216713}
   m_Layer: 0
-  m_Name: Grid Manager
+  m_Name: Grid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gridSize: {x: 12, y: 8}
   gridContainer: {fileID: 0}
-  tilePrefab: {fileID: 0}
+  tilePrefab: {fileID: 7734035248267090920, guid: 326d1c61d4fa1446a84c5c8315852722, type: 3}
