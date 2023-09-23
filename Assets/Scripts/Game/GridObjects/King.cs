@@ -7,7 +7,6 @@ namespace Assets.Scripts.Game.GridObjects
         [SerializeField] private Vector2Int forwardVector;
 
         private GameManager _gameManager;
-        private Vector2Int _previousCoordinates;
 
         protected override void OnStart()
         {
@@ -17,10 +16,8 @@ namespace Assets.Scripts.Game.GridObjects
 
         protected override void OnHeartbeat(int heartbeat)
         {
-            _previousCoordinates = Coordinates;
             Move(forwardVector);
             CheckWinCondition();
-            CheckLoseCondition();
         }
 
         private void CheckWinCondition()
@@ -31,15 +28,9 @@ namespace Assets.Scripts.Game.GridObjects
             }
         }
 
-        private void CheckLoseCondition()
+        protected override void OnHalt()
         {
-            // Game not running anymore - probably because the win condition already triggered
-            if (!_gameManager.GameRunning) return;
-
-            if (Coordinates == _previousCoordinates)
-            {
-                _gameManager.TriggerLoseCondition();
-            }
+            _gameManager.TriggerLoseCondition();
         }
     }
 }

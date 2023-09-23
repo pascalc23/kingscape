@@ -23,6 +23,17 @@ namespace Assets.Scripts.Game.GridObjects
                 gridManager.Move(this, destination);
                 UpdateWorldPosition();
             }
+            else
+            {
+                OnHalt();
+            }
+        }
+
+        /// <summary>
+        /// Called when the active item is trying to move but can't
+        /// </summary>
+        protected virtual void OnHalt()
+        {
         }
 
         public void AnimateDestroy()
