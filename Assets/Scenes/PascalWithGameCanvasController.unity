@@ -21451,6 +21451,14 @@ PrefabInstance:
       value: Game Manager
       objectReference: {fileID: 0}
     - target: {fileID: 9052424464425833493, guid: ed591a6107cea4334a1a63401410cea8, type: 3}
+      propertyPath: eventLevelFailed.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052424464425833493, guid: ed591a6107cea4334a1a63401410cea8, type: 3}
+      propertyPath: eventLevelComplete.m_PersistentCalls.m_Calls.Array.size
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052424464425833493, guid: ed591a6107cea4334a1a63401410cea8, type: 3}
       propertyPath: eventLevelFailed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1618300889}
@@ -21471,14 +21479,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1499759379}
     m_Modifications:
-    - target: {fileID: 301585610240413141, guid: 66560fe9951104f23b062a97498af0a5, type: 3}
-      propertyPath: levelFailedSfx
-      value: 
-      objectReference: {fileID: 8300000, guid: 15d2cd365ca674bc1aee44d02eba8889, type: 3}
-    - target: {fileID: 301585610240413141, guid: 66560fe9951104f23b062a97498af0a5, type: 3}
-      propertyPath: levelCompletedSfx
-      value: 
-      objectReference: {fileID: 8300000, guid: 88c7b7cf623b04f2ba11594c8dfb1d33, type: 3}
     - target: {fileID: 3676574663688270987, guid: 66560fe9951104f23b062a97498af0a5, type: 3}
       propertyPath: m_Name
       value: Audio Manager

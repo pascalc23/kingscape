@@ -141,11 +141,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46aa9d24af2a44ed9f2684ddd0ad3a6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonClickSfx: {fileID: 0}
-  buttonHoverSfx: {fileID: 0}
-  pushSfx: {fileID: 0}
-  levelCompletedSfx: {fileID: 0}
-  levelFailedSfx: {fileID: 0}
+  buttonClickSfx: {fileID: 8300000, guid: c1fcf6cb8141d4e2599c1d44a15f9744, type: 3}
+  buttonHoverSfx: {fileID: 8300000, guid: f969b2575d7894c73838803d2d61cb8d, type: 3}
+  moveSfx: {fileID: 8300000, guid: e125176344e6e44f38300ac8b6d24420, type: 3}
+  pushItemSfx: {fileID: 8300000, guid: 4a9f7d8b4ea364c14a737a1dab594293, type: 3}
+  levelCompletedSfx: {fileID: 8300000, guid: 88c7b7cf623b04f2ba11594c8dfb1d33, type: 3}
+  levelFailedSfx: {fileID: 8300000, guid: 15d2cd365ca674bc1aee44d02eba8889, type: 3}
   eventVolumeChanged:
     m_PersistentCalls:
       m_Calls: []

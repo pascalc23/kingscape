@@ -1,3 +1,4 @@
+using Assets.Scripts.Audio;
 using UnityEngine;
 
 namespace Assets.Scripts.Game.GridObjects
@@ -15,7 +16,7 @@ namespace Assets.Scripts.Game.GridObjects
         {
             if (isHalted) return;
             Interact(forwardVector); // Try to interact first
-            Move(forwardVector);
+            Move(forwardVector, () => AudioManager.Instance.OnMove());
         }
 
         protected override void OnHalt()

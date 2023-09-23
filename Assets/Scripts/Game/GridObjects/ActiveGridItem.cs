@@ -1,3 +1,5 @@
+using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Assets.Scripts.Game.GridObjects
@@ -29,12 +31,13 @@ namespace Assets.Scripts.Game.GridObjects
             }
         }
 
-        protected void Move(Vector2Int direction)
+        protected void Move(Vector2Int direction, Action onMove = null)
         {
             Vector2Int destination = Coordinates + direction;
             if (gridManager.CanMove(this, destination))
             {
                 gridManager.Move(this, destination);
+                onMove?.Invoke();
             }
             else
             {

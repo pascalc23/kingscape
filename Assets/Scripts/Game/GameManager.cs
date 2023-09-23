@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Assets.Scripts.Audio;
 using Assets.Scripts.Common;
 using Assets.Scripts.Game.Grid;
 using Assets.Scripts.Game.GridObjects;
@@ -70,6 +71,7 @@ namespace Assets.Scripts.Game
         {
             GameRunning = false;
             eventLevelComplete.Invoke();
+            AudioManager.Instance.OnLevelFinished(true);
             Debug.Log("LEVEL IS WON");
         }
 
@@ -77,6 +79,7 @@ namespace Assets.Scripts.Game
         {
             GameRunning = false;
             eventLevelFailed.Invoke();
+            AudioManager.Instance.OnLevelFinished(false);
             Debug.Log("King could not move anymore - game is over");
         }
     }

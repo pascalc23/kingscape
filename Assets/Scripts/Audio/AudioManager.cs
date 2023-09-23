@@ -15,7 +15,8 @@ namespace Assets.Scripts.Audio
         [SerializeField] private AudioClip buttonHoverSfx;
 
         [Header("Pawn Actions SFX")]
-        [SerializeField] private AudioClip pushSfx;
+        [SerializeField] private AudioClip moveSfx;
+        [SerializeField] private AudioClip pushItemSfx;
 
         [Header("Game End SFX")]
         [SerializeField] private AudioClip levelCompletedSfx;
@@ -48,6 +49,16 @@ namespace Assets.Scripts.Audio
         public void OnButtonHover()
         {
             PlaySfx(buttonHoverSfx);
+        }
+
+        public void OnPushItem()
+        {
+            PlaySfx(pushItemSfx);
+        }
+
+        public void OnMove()
+        {
+            PlaySfx(moveSfx, 0.5f);
         }
 
         public void OnLevelFinished(bool playerWon)

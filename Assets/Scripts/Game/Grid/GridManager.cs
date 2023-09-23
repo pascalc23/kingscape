@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Assets.Scripts.Audio;
 using Assets.Scripts.Common;
 using Assets.Scripts.Game.Grid.Tiles;
 using Assets.Scripts.Game.GridObjects;
@@ -139,6 +140,7 @@ namespace Assets.Scripts.Game.Grid
             // If all checks out we can push the item forward
             MoveItem(obstacle, coordinates + direction);
             MoveItem(pusher, coordinates);
+            AudioManager.Instance.OnPushItem();
 
             return true;
         }
