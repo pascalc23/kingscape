@@ -11,10 +11,11 @@ namespace Assets.Scripts.Game
     {
         [SerializeField] private float timeBetweenHeartbeats = 1f;
 
-        public UnityEvent eventHeartbeat = new();
+        public UnityEvent<int> eventHeartbeat = new();
 
         private GridManager _gridManager;
         private bool _gameRunning;
+        private int _heartbeat;
         private Vector2Int _previousKingPosition;
 
         private void Start()
@@ -32,6 +33,7 @@ namespace Assets.Scripts.Game
 
         private void StartHeartbeat()
         {
+            _heartbeat = 0;
             StartCoroutine(Heartbeat());
         }
 
@@ -42,15 +44,16 @@ namespace Assets.Scripts.Game
                 yield return new WaitForSeconds(timeBetweenHeartbeats);
 
                 // Invoke heartbeat event that triggers all pawn movements
-                eventHeartbeat.Invoke();
-                Debug.Log($"[{GetType().Name}] Heartbeat");
+                eventHeartbeat.Invoke(_heartbeat);
+                Debug.Log($"[{GetType().Name}] Heartbeat {_heartbeat}");
+                _heartbeat++;
 
                 // Check win and lose conditions
-                CheckWinCondition();
-                CheckLoseCondition();
+                //CheckWinCondition();
+                //CheckLoseCondition();
 
                 // Store the kings current position
-                _previousKingPosition = _gridManager.king.Coordinates;
+                //_previousKingPosition = _gridManager.king.Coordinates;
             }
         }
 

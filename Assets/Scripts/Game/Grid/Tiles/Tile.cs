@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Assets.Scripts.Game.Grid.Tiles
 {
-    public class Tile : GridItem
+    public class Tile : GridItemBase
     {
         [SerializeField] private TextMeshPro debugText;
         [SerializeField] private TileTypeSO type;
@@ -13,15 +13,19 @@ namespace Assets.Scripts.Game.Grid.Tiles
 
         public TileTypeSO Type => type;
 
+        private void Awake()
+        {
+            Coordinates = GetCoordinatesFromWorldPosition();
+        }
+
         protected override void OnStart()
         {
             gridManager.RegisterTile(this);
             UpdateVisuals();
         }
 
-        protected override void OnValidate()
+        protected void OnValidate()
         {
-            base.OnValidate();
             UpdateVisuals();
         }
 
@@ -30,6 +34,11 @@ namespace Assets.Scripts.Game.Grid.Tiles
             UpdateCoordinates();
             UpdateName();
             UpdateMaterial();
+        }
+
+        private void UpdateCoordinates()
+        {
+            Coordinates = GetCoordinatesFromWorldPosition();
         }
 
         private void UpdateMaterial()

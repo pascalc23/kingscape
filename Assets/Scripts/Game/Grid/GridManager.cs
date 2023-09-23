@@ -15,7 +15,7 @@ namespace Assets.Scripts.Game.Grid
         public ActiveGridItem king;
 
         private Dictionary<Vector2Int, Tile> _tiles = new();
-        private Dictionary<Vector2Int, ActiveGridItem> _gridItems = new();
+        private Dictionary<Vector2Int, GridItem> _gridItems = new();
 
         public void RegisterTile(Tile tile)
         {
@@ -24,7 +24,7 @@ namespace Assets.Scripts.Game.Grid
             Debug.Log($"[{GetType().Name}] Registered tile '{tile.name}' at coordinates {tile.Coordinates}");
         }
 
-        public void RegisterGridItem(ActiveGridItem gridItem)
+        public void RegisterGridItem(GridItem gridItem)
         {
             if (_gridItems.ContainsKey(gridItem.Coordinates))
                 throw new Exception($"Cannot register grid item '{gridItem.name}' at coordinate {gridItem.Coordinates} - Another item is already occupying that space");
@@ -38,13 +38,12 @@ namespace Assets.Scripts.Game.Grid
         }
 
         /// <summary>
-        /// Returns true if the given <paramref name="activeGridItem"/> can move to the target position
+        /// Returns true if the given <paramref name="activeGridItemBase"/> can move to the target position
         /// </summary>
-        public bool CanMove(ActiveGridItem activeGridItem, Vector2Int destination)
+        public bool CanMove(ActiveGridItem activeGridItemBase, Vector2Int destination)
         {
             // If the target tile does not exist we cannot move there
-            Tile targetTile = _tiles[destination];
-            if (targetTile == null) return false;
+            if (!_tiles.TryGetValue(destination, out Tile targetTile)) return false;
 
             // If the target tile is impassable we cannot move there
             if (targetTile.Type.isWalkable == false) return false;
@@ -53,31 +52,31 @@ namespace Assets.Scripts.Game.Grid
             return !IsOccupied(destination);
         }
 
-        public void Move(ActiveGridItem activeGridItem, Vector2Int destination)
+        public void Move(ActiveGridItem activeGridItemBase, Vector2Int destination)
         {
             // Ensure we actually are still located at the current coordinates
-            Assert.IsTrue(_gridItems[activeGridItem.Coordinates] == activeGridItem);
+            Assert.IsTrue(_gridItems[activeGridItemBase.Coordinates] == activeGridItemBase);
 
             // If the destination is already occupied we cannot move there
-            if (!CanMove(activeGridItem, destination))
+            if (!CanMove(activeGridItemBase, destination))
             {
-                throw new Exception($"[{GetType().Name}] I tried to move item '{activeGridItem.name}' to grid location {destination} but I cannot move there");
+                throw new Exception($"[{GetType().Name}] I tried to move item '{activeGridItemBase.name}' to grid location {destination} but I cannot move there");
             }
 
             // Remove the piece from the grid
-            _gridItems.Remove(activeGridItem.Coordinates);
+            _gridItems.Remove(activeGridItemBase.Coordinates);
 
             // Move the piece
-            activeGridItem.Coordinates = destination;
+            activeGridItemBase.Coordinates = destination;
 
             // Put it back on the grid unless it reached the finish tile
             if (IsFinishTile(destination))
             {
-                activeGridItem.AnimateDestroy();
+                activeGridItemBase.AnimateDestroy();
             }
             else
             {
-                _gridItems[destination] = activeGridItem;
+                _gridItems[destination] = activeGridItemBase;
             }
         }
 

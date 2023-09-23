@@ -6,7 +6,7 @@ namespace Assets.Scripts.Game.GridObjects
     {
         [SerializeField] private Vector2Int forwardVector;
 
-        protected override void OnHeartbeat()
+        protected override void OnHeartbeat(int heartbeat)
         {
             Move(forwardVector);
         }
