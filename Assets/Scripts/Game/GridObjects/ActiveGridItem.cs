@@ -60,13 +60,7 @@ namespace Assets.Scripts.Game.GridObjects
         public virtual void OnFinish()
         {
             isHalted = true;
-            gridManager.RemoveGridItem(this);
-            AnimateDestroy();
-        }
-
-        protected void AnimateDestroy()
-        {
-            Destroy(gameObject);
+            DestroySelf();
         }
     }
 }

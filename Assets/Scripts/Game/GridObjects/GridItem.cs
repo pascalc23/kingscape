@@ -13,5 +13,17 @@ namespace Assets.Scripts.Game.GridObjects
             SetCoordinates(coordinates, false);
             GridManager.Instance.RegisterGridItem(this);
         }
+
+        protected void DestroySelf()
+        {
+            // Remove us from the grid and animate destruction
+            gridManager.RemoveGridItem(this);
+            AnimateDestroy();
+        }
+
+        private void AnimateDestroy()
+        {
+            Destroy(gameObject);
+        }
     }
 }

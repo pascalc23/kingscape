@@ -9,7 +9,7 @@ namespace Assets.Scripts.Game.GridObjects.Pawns
         public override void OnFinish()
         {
             base.OnFinish();
-            AnimateDestroy();
+            DestroySelf();
         }
 
         public void Interact(GridItem target)

@@ -63,9 +63,6 @@ namespace Assets.Scripts.Game.Grid
                 throw new Exception($"[{GetType().Name}] I tried to move item '{activeGridItem.name}' to grid location {destination} but I cannot move there");
             }
 
-            // Remove the piece from the grid
-            _gridItems.Remove(activeGridItem.Coordinates);
-
             // Move the piece
             MoveItem(activeGridItem, destination);
 
@@ -116,7 +113,7 @@ namespace Assets.Scripts.Game.Grid
         /// Tries to push the item from the given <paramref name="coordinates"/> to the given <paramref name="direction"/>.
         /// Returns true if it did push something. 
         /// </summary>
-        public bool TryPush(Vector2Int coordinates, Vector2Int direction)
+        public bool TryPush(GridItem pusher, Vector2Int coordinates, Vector2Int direction)
         {
             // Ensure there is an obstacle at the provided coordinates
             GridItem gridItem = GetGridItem(coordinates);
@@ -129,14 +126,19 @@ namespace Assets.Scripts.Game.Grid
             // Ensure there is nothing placed at the tile "behind" the provided coordinates
             if (GetGridItem(coordinates + direction) != null) return false;
 
-            // If all checks out we can push the item
+            // If all checks out we can push the item forward
             MoveItem(obstacle, coordinates + direction);
+            MoveItem(pusher, coordinates);
 
             return true;
         }
 
         private void MoveItem(GridItem gridItem, Vector2Int destination)
         {
+            // Remove the piece from the current position
+            _gridItems.Remove(gridItem.Coordinates);
+
+            // Update coordinates and grid position
             gridItem.SetCoordinates(destination);
             _gridItems[destination] = gridItem;
             Debug.Log($"[{GetType().Name}] Moved item '{gridItem.name}' to coordinates {destination}");

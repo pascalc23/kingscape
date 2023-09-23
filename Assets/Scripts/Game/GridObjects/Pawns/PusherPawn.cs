@@ -7,9 +7,9 @@ namespace Assets.Scripts.Game.GridObjects.Pawns
             base.OnHalt();
 
             // Check if item ahead is pushable - if so, push it and die
-            if (gridManager.TryPush(GetNextCoordinate(), forwardVector))
+            if (gridManager.TryPush(this, GetNextCoordinate(), forwardVector))
             {
-                AnimateDestroy();
+                DestroySelf();
             }
         }
     }

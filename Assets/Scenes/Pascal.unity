@@ -21047,6 +21047,10 @@ PrefabInstance:
       value: Game Manager
       objectReference: {fileID: 0}
     - target: {fileID: 9052424464425833493, guid: ed591a6107cea4334a1a63401410cea8, type: 3}
+      propertyPath: timeBetweenHeartbeats
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052424464425833493, guid: ed591a6107cea4334a1a63401410cea8, type: 3}
       propertyPath: gridItems.Array.data[0]
       value: 
       objectReference: {fileID: 6845386314575682607, guid: 6f385ef5221974851a7237f04bbc09f8, type: 3}
