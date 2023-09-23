@@ -3888,7 +3888,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (-1,3)
+  m_text: (-1,1)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -15618,7 +15618,7 @@ GameObject:
   - component: {fileID: 1756799848}
   - component: {fileID: 1756799849}
   m_Layer: 0
-  m_Name: (-1,3)
+  m_Name: (-1,1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -21032,10 +21032,6 @@ PrefabInstance:
       propertyPath: container
       value: 
       objectReference: {fileID: 1652832806}
-    - target: {fileID: 7996695887177052495, guid: 3c5b06858224e45e0820cfb697064997, type: 3}
-      propertyPath: gridItems.Array.data[1]
-      value: 
-      objectReference: {fileID: 713869533234505035, guid: 0cbb4fe2f7f0944eda6dbeced91f9e9c, type: 3}
     - target: {fileID: 8625783892826420382, guid: 3c5b06858224e45e0820cfb697064997, type: 3}
       propertyPath: m_Name
       value: Grid Item Spawner

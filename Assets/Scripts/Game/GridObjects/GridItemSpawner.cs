@@ -17,6 +17,11 @@ namespace Assets.Scripts.Game.GridObjects
             GameManager.Instance.eventAfterHeartbeat.AddListener(AfterHeartbeat);
         }
 
+        public void SetItemsToSpawn(GridItem[] gridItemPrefabs)
+        {
+            gridItems = gridItemPrefabs;
+        }
+
         private void AfterHeartbeat(int heartbeat)
         {
             if (heartbeat >= gridItems.Length) return;
