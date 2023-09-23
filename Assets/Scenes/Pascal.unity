@@ -2239,7 +2239,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugText: {fileID: 796182686}
-  type: {fileID: 11400000, guid: 4d9fd0760ce524770abf2ff1728e917d, type: 2}
+  type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1258891602}
 --- !u!1 &247540590
 GameObject:
@@ -11215,7 +11215,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: f4e2f337fe8984c6d818d5dc71caa1b1, type: 2}
+  - {fileID: 2100000, guid: 17ac90229a0954f1592c75f197a38708, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
