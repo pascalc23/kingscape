@@ -10,5 +10,10 @@ namespace Assets.Scripts.Game.GridObjects
         {
             Move(forwardVector);
         }
+
+        public override void OnFinish()
+        {
+            AnimateDestroy();
+        }
     }
 }

@@ -52,31 +52,31 @@ namespace Assets.Scripts.Game.Grid
             return !IsOccupied(destination);
         }
 
-        public void Move(ActiveGridItem activeGridItemBase, Vector2Int destination)
+        public void Move(ActiveGridItem activeGridItem, Vector2Int destination)
         {
             // Ensure we actually are still located at the current coordinates
-            Assert.IsTrue(_gridItems[activeGridItemBase.Coordinates] == activeGridItemBase);
+            Assert.IsTrue(_gridItems[activeGridItem.Coordinates] == activeGridItem);
 
             // If the destination is already occupied we cannot move there
-            if (!CanMove(activeGridItemBase, destination))
+            if (!CanMove(activeGridItem, destination))
             {
-                throw new Exception($"[{GetType().Name}] I tried to move item '{activeGridItemBase.name}' to grid location {destination} but I cannot move there");
+                throw new Exception($"[{GetType().Name}] I tried to move item '{activeGridItem.name}' to grid location {destination} but I cannot move there");
             }
 
             // Remove the piece from the grid
-            _gridItems.Remove(activeGridItemBase.Coordinates);
+            _gridItems.Remove(activeGridItem.Coordinates);
 
             // Move the piece
-            activeGridItemBase.Coordinates = destination;
+            activeGridItem.Coordinates = destination;
 
             // Put it back on the grid unless it reached the finish tile
             if (IsFinishTile(destination))
             {
-                activeGridItemBase.AnimateDestroy();
+                activeGridItem.OnFinish();
             }
             else
             {
-                _gridItems[destination] = activeGridItemBase;
+                _gridItems[destination] = activeGridItem;
             }
         }
 

@@ -17,20 +17,16 @@ namespace Assets.Scripts.Game.GridObjects
         protected override void OnHeartbeat(int heartbeat)
         {
             Move(forwardVector);
-            CheckWinCondition();
-        }
-
-        private void CheckWinCondition()
-        {
-            if (Coordinates == gridManager.levelFinishTile.Coordinates)
-            {
-                _gameManager.TriggerWinCondition();
-            }
         }
 
         protected override void OnHalt()
         {
             _gameManager.TriggerLoseCondition();
+        }
+
+        public override void OnFinish()
+        {
+            _gameManager.TriggerWinCondition();
         }
     }
 }

@@ -36,7 +36,14 @@ namespace Assets.Scripts.Game.GridObjects
         {
         }
 
-        public void AnimateDestroy()
+        /// <summary>
+        /// Called when the active item has reached the finish tile
+        /// </summary>
+        public virtual void OnFinish()
+        {
+        }
+        
+        protected void AnimateDestroy()
         {
             Destroy(gameObject);
         }
