@@ -1,32 +1,19 @@
+using System;
+using System.Collections.Generic;
+using Assets.Scripts.Common;
+using Assets.Scripts.Grid.Tiles;
 using UnityEngine;
 
 namespace Assets.Scripts.Grid
 {
-    public class GridManager : MonoBehaviour
+    public class GridManager : Singleton<GridManager>
     {
-        [SerializeField] private Vector2 gridSize;
-        [SerializeField] private Transform gridContainer;
-        [SerializeField] private Tile tilePrefab;
+        private Dictionary<Vector2Int, Tile> _tiles = new();
 
-        private Tile[][] _grid;
-
-        private void Start()
+        public void RegisterTile(Vector2Int coordinates, Tile tile)
         {
-            SpawnGrid();
-        }
-
-        private void SpawnGrid()
-        {
-            int shiftX = Mathf.RoundToInt(gridSize.x / 2f);
-            int shiftY = Mathf.RoundToInt(gridSize.y / 2f);
-            for (int x = 0; x < gridSize.x; x++)
-            {
-                for (int y = 0; y < gridSize.y; y++)
-                {
-                    Tile tile = Instantiate(tilePrefab, gridContainer);
-                    tile.Initialize(new Vector2(x - shiftX, y - shiftY));
-                }
-            }
+            if (_tiles[coordinates] != null) throw new Exception($"Cannot register tile at coordinate {coordinates} - Another tile is already registered there");
+            _tiles[coordinates] = tile;
         }
     }
 }
