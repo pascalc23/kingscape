@@ -46,6 +46,22 @@ public class GameCanvasController : MonoBehaviour
 
     private void OnPlayButtonPressed()
     {
+        var queue = unitQueue.GetQueue();
+
+        bool hasKing = false;
+        foreach (var item in queue)
+        {
+            if (item == null)
+                continue;
+            hasKing |= item.name.ToLower().Contains("king");
+        }
+
+        if (!hasKing)
+        {
+            Debug.Log("At least one unit needs to be a king unit");
+            return;
+        }
+
         gameManager.StartLevel(unitQueue.GetQueue());
         unitSelection.SetUnitSelectionItemsInteractable(false);
         playButton.interactable = false;
@@ -74,6 +90,8 @@ public class GameCanvasController : MonoBehaviour
         levelCompleteFailedUI.SetActive(false);
         playButton.interactable = true;
         unitSelection.SetUnitSelectionItemsInteractable(true);
+
+        gameManager.ResetSpawnedItems();
     }
 
     private void OnNextLevelPressed()
@@ -81,6 +99,8 @@ public class GameCanvasController : MonoBehaviour
         levelCompleteFailedUI.SetActive(false);
         playButton.interactable = true;
         unitSelection.SetUnitSelectionItemsInteractable(true);
+
+        gameManager.ResetSpawnedItems();
 
         // TODO: Load next level
     }

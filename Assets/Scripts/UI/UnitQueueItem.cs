@@ -3,14 +3,20 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UnitQueueItem : MonoBehaviour, IDropHandler
+public class UnitQueueItem : MonoBehaviour, IDropHandler, IPointerClickHandler
 {
     [SerializeField]
     private Image unitImage;
 
     private GridItem prefabInQue;
+    private Sprite originalSprite;
 
     public GridItem PrefabInQue => prefabInQue;
+
+    private void Awake()
+    {
+        originalSprite = unitImage.sprite;
+    }
 
     public void OnDrop(PointerEventData eventData)
     {
@@ -20,5 +26,11 @@ public class UnitQueueItem : MonoBehaviour, IDropHandler
             prefabInQue = item.PrefabToSpawn;
             unitImage.sprite = item.UnitSprite;
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        unitImage.sprite = originalSprite;
+        prefabInQue = null;
     }
 }
