@@ -30,5 +30,10 @@ namespace Assets.Scripts.Game.GridObjects
                 UpdateWorldPosition();
             }
         }
+
+        public void AnimateDestroy()
+        {
+            Destroy(gameObject);
+        }
     }
 }

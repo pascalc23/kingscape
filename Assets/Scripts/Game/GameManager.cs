@@ -15,6 +15,7 @@ namespace Assets.Scripts.Game
 
         private GridManager _gridManager;
         private bool _gameRunning;
+        private Vector2Int _previousKingPosition;
 
         private void Start()
         {
@@ -39,9 +40,17 @@ namespace Assets.Scripts.Game
             while (_gameRunning)
             {
                 yield return new WaitForSeconds(timeBetweenHeartbeats);
+
+                // Invoke heartbeat event that triggers all pawn movements
                 eventHeartbeat.Invoke();
                 Debug.Log($"[{GetType().Name}] Heartbeat");
+
+                // Check win and lose conditions
                 CheckWinCondition();
+                CheckLoseCondition();
+
+                // Store the kings current position
+                _previousKingPosition = _gridManager.king.Coordinates;
             }
         }
 
@@ -57,6 +66,23 @@ namespace Assets.Scripts.Game
         private void OnLevelComplete()
         {
             Debug.Log("LEVEL IS WON");
+        }
+
+        private void CheckLoseCondition()
+        {
+            // Game not running anymore - probably because the win condition already triggered
+            if (!_gameRunning) return;
+
+            if (_gridManager.king.Coordinates == _previousKingPosition)
+            {
+                _gameRunning = false;
+                OnGameLost();
+            }
+        }
+
+        private void OnGameLost()
+        {
+            Debug.Log("King could not move anymore - game is over");
         }
     }
 }

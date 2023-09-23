@@ -64,10 +64,26 @@ namespace Assets.Scripts.Game.Grid
                 throw new Exception($"[{GetType().Name}] I tried to move item '{activeGridItem.name}' to grid location {destination} but I cannot move there");
             }
 
-            // Move the piece
+            // Remove the piece from the grid
             _gridItems.Remove(activeGridItem.Coordinates);
-            _gridItems[destination] = activeGridItem;
+
+            // Move the piece
             activeGridItem.Coordinates = destination;
+
+            // Put it back on the grid unless it reached the finish tile
+            if (IsFinishTile(destination))
+            {
+                activeGridItem.AnimateDestroy();
+            }
+            else
+            {
+                _gridItems[destination] = activeGridItem;
+            }
+        }
+
+        private bool IsFinishTile(Vector2Int destination)
+        {
+            return levelFinishTile == _tiles[destination];
         }
 
         public bool IsOccupied(Vector2Int coordinates)
