@@ -44,4 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 352d91dd945da43138c9fadf1ba31fbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unityGridSize: 0
+  tileTypeStart: {fileID: 11400000, guid: e77d742c7b17198418d9cbc4982cd543, type: 2}
+  tileTypeFinish: {fileID: 11400000, guid: 411e0e7de05fe0f4fbef488a9106411b, type: 2}

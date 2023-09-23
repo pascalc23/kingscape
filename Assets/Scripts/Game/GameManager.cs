@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using Assets.Scripts.Common;
+using Assets.Scripts.Game.Grid;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -11,15 +13,18 @@ namespace Assets.Scripts.Game
 
         public UnityEvent eventHeartbeat = new();
 
+        private GridManager _gridManager;
         private bool _gameRunning;
 
         private void Start()
         {
+            _gridManager = GridManager.Instance;
             StartGame();
         }
 
         private void StartGame()
         {
+            if (!_gridManager.IsLevelReady()) throw new Exception("Cannot start game - Level is not ready");
             _gameRunning = true;
             StartHeartbeat();
         }

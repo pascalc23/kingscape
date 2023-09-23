@@ -2,7 +2,6 @@ using Assets.Scripts.Game.GridObjects;
 using Assets.Scripts.Grid.Tiles.Types;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Assets.Scripts.Game.Grid.Tiles
 {
@@ -10,8 +9,9 @@ namespace Assets.Scripts.Game.Grid.Tiles
     {
         [SerializeField] private TextMeshPro debugText;
         [SerializeField] private TileTypeSO type;
-        [FormerlySerializedAs("renderer")] [SerializeField]
-        private MeshRenderer meshRenderer;
+        [SerializeField] private MeshRenderer meshRenderer;
+
+        public TileTypeSO Type => type;
 
         protected override void OnStart()
         {
