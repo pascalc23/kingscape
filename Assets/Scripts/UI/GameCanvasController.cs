@@ -1,6 +1,4 @@
 using Assets.Scripts.Game;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -90,8 +88,7 @@ public class GameCanvasController : MonoBehaviour
         levelCompleteFailedUI.SetActive(false);
         playButton.interactable = true;
         unitSelection.SetUnitSelectionItemsInteractable(true);
-
-        gameManager.ResetSpawnedItems();
+        gameManager.ResetLevel();
     }
 
     private void OnNextLevelPressed()
@@ -99,8 +96,7 @@ public class GameCanvasController : MonoBehaviour
         levelCompleteFailedUI.SetActive(false);
         playButton.interactable = true;
         unitSelection.SetUnitSelectionItemsInteractable(true);
-
-        gameManager.ResetSpawnedItems();
+        gameManager.ResetLevel();
 
         // TODO: Load next level
     }
