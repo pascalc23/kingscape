@@ -24,9 +24,10 @@ namespace Assets.Scripts.Game.GridObjects
         protected void Move(Vector2Int direction)
         {
             Vector2Int destination = Coordinates + direction;
-            if (gridManager.Move(this, destination))
+            if (gridManager.CanMove(this, destination))
             {
-                UpdatePosition();
+                gridManager.Move(this, destination);
+                UpdateWorldPosition();
             }
         }
     }

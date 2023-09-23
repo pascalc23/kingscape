@@ -14,7 +14,7 @@ namespace Assets.Scripts.Game.GridObjects
 
         private void Awake()
         {
-            Coordinates = GetCoordinatesFromPosition();
+            Coordinates = GetCoordinatesFromWorldPosition();
         }
 
         private void Start()
@@ -34,15 +34,15 @@ namespace Assets.Scripts.Game.GridObjects
 
         protected void UpdateCoordinates()
         {
-            Coordinates = GetCoordinatesFromPosition();
+            Coordinates = GetCoordinatesFromWorldPosition();
         }
 
-        protected void UpdatePosition()
+        protected void UpdateWorldPosition()
         {
             transform.position = new Vector3(Coordinates.x, 0, Coordinates.y);
         }
 
-        private Vector2Int GetCoordinatesFromPosition()
+        private Vector2Int GetCoordinatesFromWorldPosition()
         {
             var position = transform.position;
             return new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z));

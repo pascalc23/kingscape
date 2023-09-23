@@ -37,24 +37,37 @@ namespace Assets.Scripts.Game.Grid
             return levelStartTile != null && levelFinishTile != null;
         }
 
-        public bool Move(ActiveGridItem activeGridItem, Vector2Int destination)
+        /// <summary>
+        /// Returns true if the given <paramref name="activeGridItem"/> can move to the target position
+        /// </summary>
+        public bool CanMove(ActiveGridItem activeGridItem, Vector2Int destination)
+        {
+            // If the target tile does not exist we cannot move there
+            Tile targetTile = _tiles[destination];
+            if (targetTile == null) return false;
+
+            // If the target tile is impassable we cannot move there
+            if (targetTile.Type.isWalkable == false) return false;
+
+            // If the destination is already occupied we cannot move there
+            return !IsOccupied(destination);
+        }
+
+        public void Move(ActiveGridItem activeGridItem, Vector2Int destination)
         {
             // Ensure we actually are still located at the current coordinates
             Assert.IsTrue(_gridItems[activeGridItem.Coordinates] == activeGridItem);
 
             // If the destination is already occupied we cannot move there
-            if (IsOccupied(destination))
+            if (!CanMove(activeGridItem, destination))
             {
-                Debug.Log($"[{GetType().Name}] I tried to move item '{activeGridItem.name}' to grid location {destination} but it was already occupied");
-                return false;
+                throw new Exception($"[{GetType().Name}] I tried to move item '{activeGridItem.name}' to grid location {destination} but I cannot move there");
             }
 
             // Move the piece
             _gridItems.Remove(activeGridItem.Coordinates);
             _gridItems[destination] = activeGridItem;
             activeGridItem.Coordinates = destination;
-
-            return true;
         }
 
         public bool IsOccupied(Vector2Int coordinates)
