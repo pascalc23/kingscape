@@ -38,13 +38,13 @@ namespace Assets.Scripts.Game.GridObjects
 
         protected void UpdatePosition()
         {
-            transform.position = new Vector3(Coordinates.x, Coordinates.y, 0);
+            transform.position = new Vector3(Coordinates.x, 0, Coordinates.y);
         }
 
         private Vector2Int GetCoordinatesFromPosition()
         {
             var position = transform.position;
-            return new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y));
+            return new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z));
         }
     }
 }
