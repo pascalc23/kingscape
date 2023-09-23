@@ -41,7 +41,22 @@ namespace Assets.Scripts.Game
                 yield return new WaitForSeconds(timeBetweenHeartbeats);
                 eventHeartbeat.Invoke();
                 Debug.Log($"[{GetType().Name}] Heartbeat");
+                CheckWinCondition();
             }
+        }
+
+        private void CheckWinCondition()
+        {
+            if (_gridManager.king.Coordinates == _gridManager.levelFinishTile.Coordinates)
+            {
+                _gameRunning = false;
+                OnLevelComplete();
+            }
+        }
+
+        private void OnLevelComplete()
+        {
+            Debug.Log("LEVEL IS WON");
         }
     }
 }
