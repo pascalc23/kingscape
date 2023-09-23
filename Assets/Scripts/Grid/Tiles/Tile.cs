@@ -41,7 +41,7 @@ namespace Assets.Scripts.Grid.Tiles
         private Vector2Int GetCoordinatesFromPosition()
         {
             var position = transform.position;
-            return new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y));
+            return new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z));
         }
 
         private void UpdateMaterial()
@@ -49,7 +49,7 @@ namespace Assets.Scripts.Grid.Tiles
             renderer.material = type.material;
         }
 
-        private void UpdateName()
+        public void UpdateName()
         {
             _coordinates = GetCoordinatesFromPosition();
             string tileName = $"({_coordinates.x},{_coordinates.y})";
