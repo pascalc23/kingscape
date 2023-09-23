@@ -16,10 +16,12 @@ namespace Assets.Scripts.Game.Grid.Tiles
         protected override void OnStart()
         {
             gridManager.RegisterTile(this);
+            UpdateVisuals();
         }
 
-        protected override void Initialize()
+        public void UpdateVisuals()
         {
+            UpdateCoordinates();
             UpdateName();
             UpdateMaterial();
         }

@@ -15,7 +15,6 @@ namespace Assets.Scripts.Game.GridObjects
         private void Awake()
         {
             Coordinates = GetCoordinatesFromPosition();
-            Initialize();
         }
 
         private void Start()
@@ -30,11 +29,13 @@ namespace Assets.Scripts.Game.GridObjects
 
         protected void OnValidate()
         {
-            Coordinates = GetCoordinatesFromPosition();
-            Initialize();
+            UpdateCoordinates();
         }
 
-        protected abstract void Initialize();
+        protected void UpdateCoordinates()
+        {
+            Coordinates = GetCoordinatesFromPosition();
+        }
 
         protected void UpdatePosition()
         {
