@@ -18,6 +18,8 @@ namespace Assets.Scripts.Game
         private GridManager _gridManager;
         private int _heartbeat;
 
+        public float TimeBetweenHeartbeats => timeBetweenHeartbeats;
+
         private void Start()
         {
             _gridManager = GridManager.Instance;

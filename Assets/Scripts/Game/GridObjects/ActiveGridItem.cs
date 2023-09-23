@@ -21,7 +21,7 @@ namespace Assets.Scripts.Game.GridObjects
             if (gridManager.CanMove(this, destination))
             {
                 gridManager.Move(this, destination);
-                UpdateWorldPosition();
+                UpdateWorldPosition(true);
             }
             else
             {
