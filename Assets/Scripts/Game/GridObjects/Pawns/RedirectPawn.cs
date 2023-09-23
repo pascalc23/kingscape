@@ -12,12 +12,12 @@ namespace Assets.Scripts.Game.GridObjects.Pawns
             AnimateDestroy();
         }
 
-        public void Interact(GridItem source)
+        public void Interact(GridItem target)
         {
-            if (source is MovingGridItem)
+            if (target is MovingGridItem)
             {
-                Debug.Log($"'{source.name}' just ran into me - I'm changing his direction to {redirectToVector}");
-                ((MovingGridItem)source).ChangeDirection(redirectToVector);
+                Debug.Log($"'{target.name}' just ran into me - I'm changing his direction to {redirectToVector}");
+                ((MovingGridItem)target).ChangeDirection(redirectToVector);
             }
         }
     }

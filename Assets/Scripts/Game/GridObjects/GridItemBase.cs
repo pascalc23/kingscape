@@ -9,7 +9,8 @@ namespace Assets.Scripts.Game.GridObjects
     /// </summary>
     public abstract class GridItemBase : MonoBehaviour
     {
-        public Vector2Int Coordinates { get; set; }
+        [SerializeField] private float animTimeScale = 0.98f;
+        public Vector2Int Coordinates { get; private set; }
 
         protected GridManager gridManager;
 
@@ -21,6 +22,29 @@ namespace Assets.Scripts.Game.GridObjects
 
         protected virtual void OnStart()
         {
+        }
+
+        public void SetCoordinates(Vector2Int value, bool animateUpdate = true)
+        {
+            Coordinates = value;
+            UpdateWorldPosition(animateUpdate);
+        }
+        
+        private void UpdateWorldPosition(bool animate)
+        {
+            if (animate)
+            {
+                AnimateUpdatePosition();
+            }
+            else
+            {
+                transform.position = new Vector3(Coordinates.x, 0, Coordinates.y);
+            }
+        }
+
+        private void AnimateUpdatePosition()
+        {
+            transform.DOMove(new Vector3(Coordinates.x, 0, Coordinates.y), GameManager.Instance.TimeBetweenHeartbeats * animTimeScale);
         }
 
         protected Vector2Int GetCoordinatesFromWorldPosition()

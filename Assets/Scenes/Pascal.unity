@@ -322,7 +322,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1965442348}
   m_Father: {fileID: 289007225}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &26110580
@@ -542,6 +543,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 845269370}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1937283711}
@@ -591,6 +593,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 929168853}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 582644096}
@@ -1276,6 +1279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1743471352}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1332080732}
@@ -1602,6 +1606,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1292282024}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1539009887}
@@ -1757,6 +1762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1763438013}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 177000807}
@@ -2083,6 +2089,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 809962295}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 232206254}
@@ -2238,6 +2245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 796182686}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1258891602}
@@ -3111,6 +3119,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1888636051}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 91750195}
@@ -3331,6 +3340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 369992306}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1768709683}
@@ -3486,6 +3496,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 2067297459}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 135765544}
@@ -4048,6 +4059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 277356667}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1295584394}
@@ -4480,6 +4492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1296497014}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 138811673}
@@ -5088,6 +5101,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1971618300}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1006522548}
@@ -5137,6 +5151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 381513410}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 352087620}
@@ -5463,6 +5478,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1792516848}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 2137478225}
@@ -5618,6 +5634,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1039822343}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 2048999332}
@@ -5773,6 +5790,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1995484337}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1932053372}
@@ -5822,6 +5840,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1160325115}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 207978071}
@@ -5977,6 +5996,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 207065929}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1525904753}
@@ -6132,6 +6152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1871532332}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1987799948}
@@ -6629,6 +6650,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1934190060}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1158045947}
@@ -6678,6 +6700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1494176493}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 678005231}
@@ -7286,6 +7309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1671920254}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1560378168}
@@ -7783,6 +7807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1740916114}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 779543354}
@@ -8280,6 +8305,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1079462625}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1074138641}
@@ -8606,6 +8632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 940951035}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1313324823}
@@ -8761,6 +8788,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 10023456}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 931407339}
@@ -8810,6 +8838,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1325318954}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 642185880}
@@ -9377,6 +9406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 2108841044}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1875443153}
@@ -9532,6 +9562,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 2074806427}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 422027313}
@@ -10029,6 +10060,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1164506678}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1759707013}
@@ -10078,6 +10110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 2036301463}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 136300405}
@@ -10127,6 +10160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 247540592}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1604340115}
@@ -10176,6 +10210,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 448085216}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1287335602}
@@ -11056,6 +11091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 329859698}
   type: {fileID: 11400000, guid: e77d742c7b17198418d9cbc4982cd543, type: 2}
   meshRenderer: {fileID: 867298789}
@@ -11136,6 +11172,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1921856973}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 83526671}
@@ -12676,6 +12713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 149240815}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1607952838}
@@ -12725,6 +12763,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1478648937}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1824302127}
@@ -12945,6 +12984,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1762528500}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 151634613}
@@ -13507,6 +13547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 719041244}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 530432342}
@@ -13591,6 +13632,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1279648984}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1065960239}
@@ -13958,6 +14000,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1081363874}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 285106522}
@@ -14390,6 +14433,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1024336125}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 121291094}
@@ -14757,6 +14801,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 2085290862}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 411684731}
@@ -14806,6 +14851,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1168063770}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1525479487}
@@ -15257,6 +15303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 457674749}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1824418382}
@@ -15653,6 +15700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 384936744}
   type: {fileID: 11400000, guid: 411e0e7de05fe0f4fbef488a9106411b, type: 2}
   meshRenderer: {fileID: 1602559115}
@@ -16468,6 +16516,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1360177647}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1698756057}
@@ -16517,6 +16566,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 26110582}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 699940107}
@@ -16737,6 +16787,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1554258648}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 810547789}
@@ -16786,6 +16837,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 276537861}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 468578963}
@@ -17218,6 +17270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 396993474}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 790593951}
@@ -17267,6 +17320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1434563777}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1149402347}
@@ -17316,6 +17370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1287947922}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1757838713}
@@ -17813,6 +17868,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 726475103}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 2022530228}
@@ -18416,9 +18472,75 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1055682244}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1759233097}
+--- !u!1001 &1965442347
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 25975438}
+    m_Modifications:
+    - target: {fileID: 1660696053169568939, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660696053169568939, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660696053169568939, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660696053169568939, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660696053169568939, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660696053169568939, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660696053169568939, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660696053169568939, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660696053169568939, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1660696053169568939, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4594162250139674845, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+      propertyPath: m_Name
+      value: Books
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1098810728759522566, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+  m_SourcePrefab: {fileID: 100100000, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+--- !u!4 &1965442348 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1660696053169568939, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+  m_PrefabInstance: {fileID: 1965442347}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1967608202
 GameObject:
   m_ObjectHideFlags: 0
@@ -18465,6 +18587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 264041234}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 2134570122}
@@ -18994,6 +19117,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 2073170122}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1554141913}
@@ -19043,6 +19167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 532259531}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1154439918}
@@ -19092,6 +19217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 983440507}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 1309871708}
@@ -19141,6 +19267,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 1802793274}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 457297027}
@@ -19573,6 +19700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animTimeScale: 0.98
   debugText: {fileID: 838497163}
   type: {fileID: 11400000, guid: 1f8b654c5806544338f5396f8f2c76bc, type: 2}
   meshRenderer: {fileID: 946744687}
@@ -20918,6 +21046,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Game Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 9052424464425833493, guid: ed591a6107cea4334a1a63401410cea8, type: 3}
+      propertyPath: gridItems.Array.data[0]
+      value: 
+      objectReference: {fileID: 6845386314575682607, guid: 6f385ef5221974851a7237f04bbc09f8, type: 3}
+    - target: {fileID: 9052424464425833493, guid: ed591a6107cea4334a1a63401410cea8, type: 3}
+      propertyPath: gridItems.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052424464425833493, guid: ed591a6107cea4334a1a63401410cea8, type: 3}
+      propertyPath: gridItems.Array.data[2]
+      value: 
+      objectReference: {fileID: 713869533234505035, guid: e2515f5d06133426486b483ea92b034d, type: 3}
+    - target: {fileID: 9052424464425833493, guid: ed591a6107cea4334a1a63401410cea8, type: 3}
+      propertyPath: gridItems.Array.data[3]
+      value: 
+      objectReference: {fileID: 713869533234505035, guid: 0cbb4fe2f7f0944eda6dbeced91f9e9c, type: 3}
+    - target: {fileID: 9052424464425833493, guid: ed591a6107cea4334a1a63401410cea8, type: 3}
+      propertyPath: gridItems.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9052424464425833493, guid: ed591a6107cea4334a1a63401410cea8, type: 3}
+      propertyPath: gridItems.Array.data[5]
+      value: 
+      objectReference: {fileID: 965224866733810470, guid: 746a5c8c4edc5463e8b7346ae73f5511, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

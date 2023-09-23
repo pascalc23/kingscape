@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Assets.Scripts.Common;
 using Assets.Scripts.Game.Grid.Tiles;
 using Assets.Scripts.Game.GridObjects;
+using Assets.Scripts.Game.GridObjects.Obstacles;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -12,7 +13,6 @@ namespace Assets.Scripts.Game.Grid
     {
         public Tile levelStartTile;
         public Tile levelFinishTile;
-        public ActiveGridItem king;
 
         private Dictionary<Vector2Int, Tile> _tiles = new();
         private Dictionary<Vector2Int, GridItem> _gridItems = new();
@@ -67,17 +67,12 @@ namespace Assets.Scripts.Game.Grid
             _gridItems.Remove(activeGridItem.Coordinates);
 
             // Move the piece
-            activeGridItem.Coordinates = destination;
-            Debug.Log($"[{GetType().Name}] Moved item '{activeGridItem.name}' to coordinates {destination}");
+            MoveItem(activeGridItem, destination);
 
-            // Put it back on the grid unless it reached the finish tile
+            // Check if the item is on the finish tile
             if (IsFinishTile(destination))
             {
                 activeGridItem.OnFinish();
-            }
-            else
-            {
-                _gridItems[destination] = activeGridItem;
             }
         }
 
@@ -103,6 +98,48 @@ namespace Assets.Scripts.Game.Grid
         public GridItem GetGridItem(Vector2Int coordinates)
         {
             return _gridItems.TryGetValue(coordinates, out var item) ? item : null;
+        }
+
+        /// <summary>
+        /// Removes an item from the grid
+        /// </summary>
+        /// <param name="gridItem"></param>
+        public void RemoveGridItem(GridItem gridItem)
+        {
+            if (_gridItems.ContainsKey(gridItem.Coordinates))
+            {
+                _gridItems.Remove(gridItem.Coordinates);
+            }
+        }
+
+        /// <summary>
+        /// Tries to push the item from the given <paramref name="coordinates"/> to the given <paramref name="direction"/>.
+        /// Returns true if it did push something. 
+        /// </summary>
+        public bool TryPush(Vector2Int coordinates, Vector2Int direction)
+        {
+            // Ensure there is an obstacle at the provided coordinates
+            GridItem gridItem = GetGridItem(coordinates);
+            if (gridItem == null || gridItem is not Obstacle) return false;
+
+            // Ensure the obstacle is movable
+            Obstacle obstacle = (Obstacle)gridItem;
+            if (!obstacle.Type.isMovable) return false;
+
+            // Ensure there is nothing placed at the tile "behind" the provided coordinates
+            if (GetGridItem(coordinates + direction) != null) return false;
+
+            // If all checks out we can push the item
+            MoveItem(obstacle, coordinates + direction);
+
+            return true;
+        }
+
+        private void MoveItem(GridItem gridItem, Vector2Int destination)
+        {
+            gridItem.SetCoordinates(destination);
+            _gridItems[destination] = gridItem;
+            Debug.Log($"[{GetType().Name}] Moved item '{gridItem.name}' to coordinates {destination}");
         }
     }
 }

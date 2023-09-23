@@ -15,7 +15,7 @@ namespace Assets.Scripts.Game.Grid.Tiles
 
         private void Awake()
         {
-            Coordinates = GetCoordinatesFromWorldPosition();
+            UpdateCoordinates();
         }
 
         private void OnEnable()
@@ -46,7 +46,7 @@ namespace Assets.Scripts.Game.Grid.Tiles
 
         private void UpdateCoordinates()
         {
-            Coordinates = GetCoordinatesFromWorldPosition();
+            SetCoordinates(GetCoordinatesFromWorldPosition(), false);
         }
 
         private void UpdateMaterial()

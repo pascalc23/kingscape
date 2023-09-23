@@ -35,7 +35,6 @@ namespace Assets.Scripts.Game.GridObjects
             if (gridManager.CanMove(this, destination))
             {
                 gridManager.Move(this, destination);
-                UpdateWorldPosition(true);
             }
             else
             {
@@ -61,6 +60,8 @@ namespace Assets.Scripts.Game.GridObjects
         public virtual void OnFinish()
         {
             isHalted = true;
+            gridManager.RemoveGridItem(this);
+            AnimateDestroy();
         }
 
         protected void AnimateDestroy()

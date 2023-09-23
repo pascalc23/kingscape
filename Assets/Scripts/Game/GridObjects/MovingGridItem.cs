@@ -4,7 +4,7 @@ namespace Assets.Scripts.Game.GridObjects
 {
     public abstract class MovingGridItem : ActiveGridItem
     {
-        [SerializeField] private Vector2Int forwardVector;
+        [SerializeField] protected Vector2Int forwardVector;
 
         public void ChangeDirection(Vector2Int direction)
         {
@@ -22,6 +22,11 @@ namespace Assets.Scripts.Game.GridObjects
         {
             base.OnHalt();
             Debug.Log($"'{name}' halted at {Coordinates}");
+        }
+
+        protected Vector2Int GetNextCoordinate()
+        {
+            return Coordinates + forwardVector;
         }
     }
 }
