@@ -1,6 +1,5 @@
 using Assets.Scripts.Common;
 using Assets.Scripts.Game.Grid;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Assets.Scripts.Game.GridObjects
@@ -11,8 +10,6 @@ namespace Assets.Scripts.Game.GridObjects
 
         private GridManager _gridManager;
         private GridItem[] _gridItemPrefabs;
-
-        private List<GridItem> _spawnedItems = new List<GridItem>();
 
         private void Start()
         {
@@ -39,16 +36,6 @@ namespace Assets.Scripts.Game.GridObjects
         {
             GridItem gridItem = Instantiate(itemPrefab, container);
             gridItem.Initialize(_gridManager.levelStartTile.Coordinates);
-            _spawnedItems.Add(gridItem);
-        }
-
-        public void ResetSpawnedItems()
-        {
-            foreach (var item in _spawnedItems)
-            {
-                item.DestroySelf();
-            }
-            _spawnedItems.Clear();
         }
     }
 }
