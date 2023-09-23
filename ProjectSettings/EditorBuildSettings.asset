@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Pascal.unity
+    guid: d8cb82fe8d2854527b2bfb016b7dc746
   m_configObjects: {}
