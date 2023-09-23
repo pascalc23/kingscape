@@ -71,7 +71,6 @@ public class GameCanvasController : MonoBehaviour
         levelCompleteText.SetActive(true);
         levelFailedText.SetActive(false);
         nextLevel.gameObject.SetActive(true);
-        gameManager.ResetLevel();
     }
 
     private void OnLevelFailed()
@@ -80,7 +79,6 @@ public class GameCanvasController : MonoBehaviour
         levelCompleteText.SetActive(false);
         levelFailedText.SetActive(true);
         nextLevel.gameObject.SetActive(false);
-        gameManager.ResetLevel();
     }
 
     private void OnRetryLevelPressed()
