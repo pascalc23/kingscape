@@ -1,43 +1,45 @@
-using Assets.Scripts.Grid.Tiles;
-using System.Collections;
 using System.Collections.Generic;
+using Assets.Scripts.Game.Grid.Tiles;
 using UnityEngine;
 
-public class GridSpawner : MonoBehaviour
+namespace Assets.Scripts.Game.Grid
 {
-    [SerializeField]
-    private Tile basicTilePrefab;
-    [SerializeField]
-    private Vector2Int gridSize;
-    [SerializeField]
-    private int tileSize;
-
-    List<Tile> tiles = new List<Tile>();
-
-    [ContextMenu("SpawnGridInEditor")]
-    private void SpawnGridInEditor()
+    public class GridSpawner : MonoBehaviour
     {
-        RemoveGridInEditor();
+        [SerializeField]
+        private Tile basicTilePrefab;
+        [SerializeField]
+        private Vector2Int gridSize;
+        [SerializeField]
+        private int tileSize;
 
-        for (int i = 0; i < gridSize.x; i++)
+        List<Tile> tiles = new List<Tile>();
+
+        [ContextMenu("SpawnGridInEditor")]
+        private void SpawnGridInEditor()
         {
-            for (int j = 0; j < gridSize.y; j++)
+            RemoveGridInEditor();
+
+            for (int i = 0; i < gridSize.x; i++)
             {
-                var go = Instantiate(basicTilePrefab, transform);
-                go.transform.position = new Vector3(i * tileSize, 0, j * tileSize);
-                go.UpdateName();
-                tiles.Add(go);
+                for (int j = 0; j < gridSize.y; j++)
+                {
+                    var go = Instantiate(basicTilePrefab, transform);
+                    go.transform.position = new Vector3(i * tileSize, 0, j * tileSize);
+                    tiles.Add(go);
+                }
             }
         }
-    }
 
-    [ContextMenu("RemoveGridInEditor")]
-    private void RemoveGridInEditor()
-    {
-        foreach (var item in tiles)
+        [ContextMenu("RemoveGridInEditor")]
+        private void RemoveGridInEditor()
         {
-            DestroyImmediate(item.gameObject);
+            foreach (var item in tiles)
+            {
+                DestroyImmediate(item.gameObject);
+            }
+
+            tiles.Clear();
         }
-        tiles.Clear();
     }
 }

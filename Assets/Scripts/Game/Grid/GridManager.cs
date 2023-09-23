@@ -17,6 +17,7 @@ namespace Assets.Scripts.Game.Grid
         {
             if (_tiles.ContainsKey(tile.Coordinates)) throw new Exception($"Cannot register tile at coordinate {tile.Coordinates} - Another tile is already occupying that space");
             _tiles[tile.Coordinates] = tile;
+            Debug.Log($"[{GetType().Name}] Registered tile '{tile.name}' at coordinates {tile.Coordinates}");
         }
 
         public void RegisterGridItem(ActiveGridItem gridItem)
