@@ -41,6 +41,11 @@ namespace Assets.Scripts.Game
             StartHeartbeat();
         }
 
+        public void ResetSpawnedItems()
+        {
+            GridItemSpawner.Instance.ResetSpawnedItems();
+        }
+
         private void StartHeartbeat()
         {
             _heartbeat = 0;

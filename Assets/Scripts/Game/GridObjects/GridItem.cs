@@ -14,7 +14,7 @@ namespace Assets.Scripts.Game.GridObjects
             GridManager.Instance.RegisterGridItem(this);
         }
 
-        protected void DestroySelf()
+        public void DestroySelf()
         {
             // Remove us from the grid and animate destruction
             gridManager.RemoveGridItem(this);

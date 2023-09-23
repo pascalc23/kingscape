@@ -1,43 +1,16 @@
-using Assets.Scripts.Game.GridObjects;
+using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
-public class UnitSelection : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class UnitSelection : MonoBehaviour
 {
     [SerializeField]
-    private Transform container;
-    [Space]
-    [SerializeField]
-    private Image unitImage;
-    [SerializeField]
-    private GridItem prefabToSpawn;
+    private List<UnitSelectionItem> unitSelectionItems;
 
-    private GameObject duplicate;
-
-    public GridItem PrefabToSpawn => prefabToSpawn;
-    public Sprite UnitSprite => unitImage.sprite;
-
-    public void OnBeginDrag(PointerEventData eventData)
+    public void SetUnitSelectionItemsInteractable(bool interactable)
     {
-        duplicate = Instantiate(gameObject, container);
-        (duplicate.transform as RectTransform).sizeDelta = (transform as RectTransform).sizeDelta;
-
-        foreach (var item in duplicate.GetComponentsInChildren<Graphic>())
+        foreach (var item in unitSelectionItems)
         {
-            item.raycastTarget = false;
+            item.Interactable = interactable;
         }
     }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        duplicate.transform.position = eventData.position;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        Destroy(duplicate);
-    }
-
-
 }
