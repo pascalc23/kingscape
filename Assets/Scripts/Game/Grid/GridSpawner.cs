@@ -2,6 +2,7 @@ using Assets.Scripts.Grid.Tiles;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static UnityEditor.Progress;
 
 public class GridSpawner : MonoBehaviour
 {
@@ -24,7 +25,7 @@ public class GridSpawner : MonoBehaviour
             for (int j = 0; j < gridSize.y; j++)
             {
                 var go = Instantiate(basicTilePrefab, transform);
-                go.transform.position = new Vector3(i * tileSize, 0, j * tileSize);
+                go.transform.position = transform.position + new Vector3(i * tileSize, 0, j * tileSize);
                 go.UpdateName();
                 tiles.Add(go);
             }
@@ -34,10 +35,17 @@ public class GridSpawner : MonoBehaviour
     [ContextMenu("RemoveGridInEditor")]
     private void RemoveGridInEditor()
     {
-        foreach (var item in tiles)
+        var goToDestroy = new List<GameObject>();
+        foreach (Transform t in transform)
         {
-            DestroyImmediate(item.gameObject);
+            goToDestroy.Add(t.gameObject);
         }
+
+        foreach (var item in goToDestroy)
+        {
+            DestroyImmediate(item);
+        }
+
         tiles.Clear();
     }
 }
