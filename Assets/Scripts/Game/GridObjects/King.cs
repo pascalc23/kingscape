@@ -6,14 +6,6 @@ namespace Assets.Scripts.Game.GridObjects
     {
         [SerializeField] private Vector2Int forwardVector;
 
-        private GameManager _gameManager;
-
-        protected override void OnStart()
-        {
-            base.OnStart();
-            _gameManager = GameManager.Instance;
-        }
-
         protected override void OnHeartbeat(int heartbeat)
         {
             Move(forwardVector);
@@ -21,12 +13,12 @@ namespace Assets.Scripts.Game.GridObjects
 
         protected override void OnHalt()
         {
-            _gameManager.TriggerLoseCondition();
+            GameManager.Instance.TriggerLoseCondition();
         }
 
         public override void OnFinish()
         {
-            _gameManager.TriggerWinCondition();
+            GameManager.Instance.TriggerWinCondition();
         }
     }
 }
