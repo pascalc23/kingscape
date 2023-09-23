@@ -1,8 +1,8 @@
 using Assets.Scripts.Common;
-using Assets.Scripts.Game.GridObjects;
+using Assets.Scripts.Game.Grid;
 using UnityEngine;
 
-namespace Assets.Scripts.Game.Grid
+namespace Assets.Scripts.Game.GridObjects
 {
     public class GridItemSpawner : Singleton<GridItemSpawner>
     {
