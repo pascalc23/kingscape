@@ -19,6 +19,12 @@ namespace Assets.Scripts.Game.Grid.Tiles
             UpdateVisuals();
         }
 
+        protected override void OnValidate()
+        {
+            base.OnValidate();
+            UpdateVisuals();
+        }
+
         public void UpdateVisuals()
         {
             UpdateCoordinates();

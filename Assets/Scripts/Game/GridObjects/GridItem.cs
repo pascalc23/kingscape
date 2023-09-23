@@ -27,7 +27,7 @@ namespace Assets.Scripts.Game.GridObjects
         {
         }
 
-        protected void OnValidate()
+        protected virtual void OnValidate()
         {
             UpdateCoordinates();
         }
