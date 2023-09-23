@@ -27,10 +27,10 @@ namespace Assets.Scripts.Game
         private void Start()
         {
             _gridManager = GridManager.Instance;
-            StartGame();
+            StartLevel();
         }
 
-        private void StartGame()
+        public void StartLevel()
         {
             if (!_gridManager.IsLevelReady()) throw new Exception("Cannot start game - Level is not ready");
             GameRunning = true;
