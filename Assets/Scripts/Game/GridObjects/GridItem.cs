@@ -12,7 +12,7 @@ namespace Assets.Scripts.Game.GridObjects
         {
             Coordinates = coordinates;
             GridManager.Instance.RegisterGridItem(this);
-            UpdateWorldPosition();
+            UpdateWorldPosition(false);
         }
     }
 }

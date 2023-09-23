@@ -18,6 +18,14 @@ namespace Assets.Scripts.Game.Grid.Tiles
             Coordinates = GetCoordinatesFromWorldPosition();
         }
 
+        private void OnEnable()
+        {
+            if (Application.isPlaying)
+            {
+                debugText.gameObject.SetActive(false);
+            }
+        }
+
         protected override void OnStart()
         {
             gridManager.RegisterTile(this);

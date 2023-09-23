@@ -1,4 +1,5 @@
 using Assets.Scripts.Game.Grid;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Assets.Scripts.Game.GridObjects
@@ -8,6 +9,9 @@ namespace Assets.Scripts.Game.GridObjects
     /// </summary>
     public abstract class GridItemBase : MonoBehaviour
     {
+        [SerializeField]
+        private float animTimeScale = 0.98f;
+
         public Vector2Int Coordinates { get; set; }
 
         protected GridManager gridManager;
@@ -22,11 +26,18 @@ namespace Assets.Scripts.Game.GridObjects
         {
         }
 
-        protected void UpdateWorldPosition()
+        protected virtual void UpdateWorldPosition(bool animate)
         {
-            transform.position = new Vector3(Coordinates.x, 0, Coordinates.y);
+            if (animate)
+            {
+                transform.DOMove(new Vector3(Coordinates.x, 0, Coordinates.y), GameManager.Instance.TimeBetweenHeartbeats * animTimeScale);
+            }
+            else
+            {
+                transform.position = new Vector3(Coordinates.x, 0, Coordinates.y);
+            }
         }
-        
+
         protected Vector2Int GetCoordinatesFromWorldPosition()
         {
             var position = transform.position;
