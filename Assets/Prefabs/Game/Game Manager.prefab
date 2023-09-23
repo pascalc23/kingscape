@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d761e6103836462c903bc6f801548118, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenHeartbeats: 1
+  timeBetweenHeartbeats: 0.5
   eventHeartbeat:
     m_PersistentCalls:
       m_Calls: []

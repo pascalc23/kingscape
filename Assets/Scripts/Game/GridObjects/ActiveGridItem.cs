@@ -11,23 +11,23 @@ namespace Assets.Scripts.Game.GridObjects
         {
             base.OnStart();
             GameManager.Instance.eventHeartbeat.AddListener(OnHeartbeat);
-            RegisterItem();
         }
 
-        private void RegisterItem()
-        {
-            gridManager.RegisterGridItem(this);
-        }
-
-        protected abstract void OnHeartbeat();
+        protected abstract void OnHeartbeat(int heartbeat);
 
         protected void Move(Vector2Int direction)
         {
             Vector2Int destination = Coordinates + direction;
-            if (gridManager.Move(this, destination))
+            if (gridManager.CanMove(this, destination))
             {
-                UpdatePosition();
+                gridManager.Move(this, destination);
+                UpdateWorldPosition();
             }
+        }
+
+        public void AnimateDestroy()
+        {
+            Destroy(gameObject);
         }
     }
 }

@@ -4,47 +4,15 @@ using UnityEngine;
 namespace Assets.Scripts.Game.GridObjects
 {
     /// <summary>
-    /// A grid item is something that has a place (coordinates) on the grid.  
+    /// An inactive grid item is something that has a place on the grid and can be interacted with, but does not actively move or interact itself
     /// </summary>
-    public abstract class GridItem : MonoBehaviour
+    public abstract class GridItem : GridItemBase
     {
-        public Vector2Int Coordinates { get; set; }
-
-        protected GridManager gridManager;
-
-        private void Awake()
+        public void Initialize(Vector2Int coordinates)
         {
-            Coordinates = GetCoordinatesFromPosition();
-            Initialize();
-        }
-
-        private void Start()
-        {
-            gridManager = GridManager.Instance;
-            OnStart();
-        }
-
-        protected virtual void OnStart()
-        {
-        }
-
-        protected void OnValidate()
-        {
-            Coordinates = GetCoordinatesFromPosition();
-            Initialize();
-        }
-
-        protected abstract void Initialize();
-
-        protected void UpdatePosition()
-        {
-            transform.position = new Vector3(Coordinates.x, 0, Coordinates.y);
-        }
-
-        private Vector2Int GetCoordinatesFromPosition()
-        {
-            var position = transform.position;
-            return new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z));
+            Coordinates = coordinates;
+            GridManager.Instance.RegisterGridItem(this);
+            UpdateWorldPosition();
         }
     }
 }

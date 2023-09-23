@@ -1,22 +1,19 @@
 using System.Collections.Generic;
 using Assets.Scripts.Game.Grid.Tiles;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 namespace Assets.Scripts.Game.Grid
 {
     public class GridSpawner : MonoBehaviour
     {
-        [SerializeField]
-        private Tile basicTilePrefab;
-        [SerializeField]
-        private Vector2Int gridSize;
-        [SerializeField]
-        private int tileSize;
+        [SerializeField] private Transform container;
+        [SerializeField] private Tile basicTilePrefab;
+        [SerializeField] private Vector2Int gridSize;
+        [SerializeField] private int tileSize;
 
         List<Tile> tiles = new List<Tile>();
 
-        [ContextMenu("SpawnGridInEditor")]
+        [ContextMenu("Spawn Grid in Editor")]
         private void SpawnGridInEditor()
         {
             RemoveGridInEditor();
@@ -25,26 +22,27 @@ namespace Assets.Scripts.Game.Grid
             {
                 for (int j = 0; j < gridSize.y; j++)
                 {
-                    var go = Instantiate(basicTilePrefab, transform);
+                    var go = Instantiate(basicTilePrefab, container);
                     go.transform.position = transform.position + new Vector3(i * tileSize, 0, j * tileSize);
+                    go.UpdateVisuals();
                     tiles.Add(go);
                 }
             }
         }
 
-        [ContextMenu("RemoveGridInEditor")]
+        [ContextMenu("Remove Grid in Editor")]
         private void RemoveGridInEditor()
         {
-        var goToDestroy = new List<GameObject>();
-        foreach (Transform t in transform)
+            var goToDestroy = new List<GameObject>();
+            foreach (Transform t in transform)
             {
-            goToDestroy.Add(t.gameObject);
+                goToDestroy.Add(t.gameObject);
             }
 
-        foreach (var item in goToDestroy)
-        {
-            DestroyImmediate(item);
-        }
+            foreach (var item in goToDestroy)
+            {
+                DestroyImmediate(item);
+            }
 
             tiles.Clear();
         }
