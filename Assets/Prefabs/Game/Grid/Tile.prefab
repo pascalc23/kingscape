@@ -323,7 +323,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0171ba8a2979c40308b5afc499e5bf54, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animTimeScale: 0.98
   debugText: {fileID: 4857932502630686296}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
   meshRenderer: {fileID: 560543918227357750}

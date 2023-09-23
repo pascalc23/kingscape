@@ -13,6 +13,9 @@ namespace Assets.Scripts.Game
 
         public bool GameRunning { get; private set; }
 
+        public UnityEvent eventLevelComplete = new();
+        public UnityEvent eventLevelFailed = new();
+
         public UnityEvent<int> eventHeartbeat = new();
         public UnityEvent<int> eventAfterHeartbeat = new();
 
@@ -57,22 +60,14 @@ namespace Assets.Scripts.Game
         public void TriggerWinCondition()
         {
             GameRunning = false;
-            OnLevelComplete();
+            eventLevelComplete.Invoke();
+            Debug.Log("LEVEL IS WON");
         }
 
         public void TriggerLoseCondition()
         {
             GameRunning = false;
-            OnGameLost();
-        }
-
-        private void OnLevelComplete()
-        {
-            Debug.Log("LEVEL IS WON");
-        }
-
-        private void OnGameLost()
-        {
+            eventLevelFailed.Invoke();
             Debug.Log("King could not move anymore - game is over");
         }
     }
