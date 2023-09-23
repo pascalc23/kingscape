@@ -52,32 +52,42 @@ namespace Assets.Scripts.Game.Grid
             return !IsOccupied(destination);
         }
 
-        public void Move(ActiveGridItem activeGridItemBase, Vector2Int destination)
+        public void Move(ActiveGridItem activeGridItem, Vector2Int destination)
         {
             // Ensure we actually are still located at the current coordinates
-            Assert.IsTrue(_gridItems[activeGridItemBase.Coordinates] == activeGridItemBase);
+            Assert.IsTrue(_gridItems[activeGridItem.Coordinates] == activeGridItem);
 
             // If the destination is already occupied we cannot move there
-            if (!CanMove(activeGridItemBase, destination))
+            if (!CanMove(activeGridItem, destination))
             {
-                throw new Exception($"[{GetType().Name}] I tried to move item '{activeGridItemBase.name}' to grid location {destination} but I cannot move there");
+                throw new Exception($"[{GetType().Name}] I tried to move item '{activeGridItem.name}' to grid location {destination} but I cannot move there");
             }
 
             // Remove the piece from the grid
-            _gridItems.Remove(activeGridItemBase.Coordinates);
+            _gridItems.Remove(activeGridItem.Coordinates);
 
             // Move the piece
-            activeGridItemBase.Coordinates = destination;
+            activeGridItem.Coordinates = destination;
+            Debug.Log($"[{GetType().Name}] Moved item '{activeGridItem.name}' to coordinates {destination}");
 
             // Put it back on the grid unless it reached the finish tile
             if (IsFinishTile(destination))
             {
-                activeGridItemBase.AnimateDestroy();
+                activeGridItem.OnFinish();
             }
             else
             {
-                _gridItems[destination] = activeGridItemBase;
+                _gridItems[destination] = activeGridItem;
             }
+        }
+
+        /// <summary>
+        /// Returns true if the given <paramref name="destination"/> coordinates contain an interactable grid item
+        /// </summary>
+        public bool CanInteract(Vector2Int destination)
+        {
+            _gridItems.TryGetValue(destination, out GridItem targetItem);
+            return targetItem != null && targetItem is IInteractable;
         }
 
         private bool IsFinishTile(Vector2Int destination)
@@ -88,6 +98,11 @@ namespace Assets.Scripts.Game.Grid
         public bool IsOccupied(Vector2Int coordinates)
         {
             return _gridItems.ContainsKey(coordinates);
+        }
+
+        public GridItem GetGridItem(Vector2Int coordinates)
+        {
+            return _gridItems.TryGetValue(coordinates, out var item) ? item : null;
         }
     }
 }

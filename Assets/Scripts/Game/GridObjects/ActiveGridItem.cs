@@ -7,6 +7,8 @@ namespace Assets.Scripts.Game.GridObjects
     /// </summary>
     public abstract class ActiveGridItem : GridItem
     {
+        protected bool isHalted;
+
         protected override void OnStart()
         {
             base.OnStart();
@@ -14,6 +16,18 @@ namespace Assets.Scripts.Game.GridObjects
         }
 
         protected abstract void OnHeartbeat(int heartbeat);
+
+        /// <summary>
+        /// Tries to interact with the grid item ahead
+        /// </summary>
+        protected void Interact(Vector2Int direction)
+        {
+            Vector2Int destination = Coordinates + direction;
+            if (gridManager.CanInteract(destination))
+            {
+                ((IInteractable)gridManager.GetGridItem(destination)).Interact(this);
+            }
+        }
 
         protected void Move(Vector2Int direction)
         {
@@ -29,14 +43,27 @@ namespace Assets.Scripts.Game.GridObjects
             }
         }
 
+        protected virtual void OnInteract(IInteractable interactable)
+        {
+        }
+
         /// <summary>
         /// Called when the active item is trying to move but can't
         /// </summary>
         protected virtual void OnHalt()
         {
+            isHalted = true;
         }
 
-        public void AnimateDestroy()
+        /// <summary>
+        /// Called when the active item has reached the finish tile
+        /// </summary>
+        public virtual void OnFinish()
+        {
+            isHalted = true;
+        }
+
+        protected void AnimateDestroy()
         {
             Destroy(gameObject);
         }
