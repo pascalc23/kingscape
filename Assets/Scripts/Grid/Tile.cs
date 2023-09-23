@@ -9,14 +9,43 @@ namespace Assets.Scripts.Grid
         [SerializeField] private TileType type;
 
         public TileType Type => type;
-        public Vector2 Position { get; private set; }
 
-        public void Initialize(Vector2 position)
+        private GridManager _gridManager;
+        private Vector2Int _coordinates;
+
+        private void Awake()
         {
-            Position = position;
-            name = $"({position.x}/{position.y})";
-            transform.position = position;
-            debugText.text = name;
+            _gridManager = GridManager.Instance;
+            Initialize();
+        }
+
+        private void OnValidate()
+        {
+            UpdateName();
+        }
+
+        private void UpdateName()
+        {
+            _coordinates = GetCoordinatesFromPosition();
+            string tileName = $"({_coordinates.x},{_coordinates.y})";
+            name = tileName;
+            debugText.text = tileName;
+        }
+
+        private void Start()
+        {
+            _gridManager.RegisterTile(_coordinates, this);
+        }
+
+        private void Initialize()
+        {
+            _coordinates = GetCoordinatesFromPosition();
+        }
+
+        private Vector2Int GetCoordinatesFromPosition()
+        {
+            var position = transform.position;
+            return new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.y));
         }
     }
 }
