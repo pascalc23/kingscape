@@ -17,6 +17,16 @@ namespace Assets.Scripts.Game.Grid
         private Dictionary<Vector2Int, Tile> _tiles = new();
         private Dictionary<Vector2Int, GridItem> _gridItems = new();
 
+        public void ResetLevel()
+        {
+            foreach (GridItem gridItem in _gridItems.Values)
+            {
+                Destroy(gridItem.gameObject);
+            }
+
+            _gridItems.Clear();
+        }
+
         public void RegisterTile(Tile tile)
         {
             if (_tiles.ContainsKey(tile.Coordinates)) throw new Exception($"Cannot register tile at coordinate {tile.Coordinates} - Another tile is already occupying that space");
