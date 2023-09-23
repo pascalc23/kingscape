@@ -73,7 +73,6 @@ public class GameCanvasController : MonoBehaviour
         levelCompleteText.SetActive(true);
         levelFailedText.SetActive(false);
         nextLevel.gameObject.SetActive(true);
-        gameManager.ResetLevel();
     }
 
     private void OnLevelFailed()
@@ -82,7 +81,6 @@ public class GameCanvasController : MonoBehaviour
         levelCompleteText.SetActive(false);
         levelFailedText.SetActive(true);
         nextLevel.gameObject.SetActive(false);
-        gameManager.ResetLevel();
     }
 
     private void OnRetryLevelPressed()
@@ -91,7 +89,7 @@ public class GameCanvasController : MonoBehaviour
         playButton.interactable = true;
         unitSelection.SetUnitSelectionItemsInteractable(true);
 
-        gameManager.ResetSpawnedItems();
+        gameManager.ResetLevel();
     }
 
     private void OnNextLevelPressed()
@@ -100,7 +98,7 @@ public class GameCanvasController : MonoBehaviour
         playButton.interactable = true;
         unitSelection.SetUnitSelectionItemsInteractable(true);
 
-        gameManager.ResetSpawnedItems();
+        gameManager.ResetLevel();
 
         // TODO: Load next level
     }
