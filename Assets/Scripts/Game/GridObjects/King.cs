@@ -1,23 +1,16 @@
-using UnityEngine;
-
 namespace Assets.Scripts.Game.GridObjects
 {
-    public class King : ActiveGridItem
+    public class King : MovingGridItem
     {
-        [SerializeField] private Vector2Int forwardVector;
-
-        protected override void OnHeartbeat(int heartbeat)
-        {
-            Move(forwardVector);
-        }
-
         protected override void OnHalt()
         {
+            base.OnHalt();
             GameManager.Instance.TriggerLoseCondition();
         }
 
         public override void OnFinish()
         {
+            base.OnFinish();
             GameManager.Instance.TriggerWinCondition();
         }
     }

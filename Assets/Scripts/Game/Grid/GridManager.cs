@@ -68,6 +68,7 @@ namespace Assets.Scripts.Game.Grid
 
             // Move the piece
             activeGridItem.Coordinates = destination;
+            Debug.Log($"[{GetType().Name}] Moved item '{activeGridItem.name}' to coordinates {destination}");
 
             // Put it back on the grid unless it reached the finish tile
             if (IsFinishTile(destination))
@@ -80,6 +81,15 @@ namespace Assets.Scripts.Game.Grid
             }
         }
 
+        /// <summary>
+        /// Returns true if the given <paramref name="destination"/> coordinates contain an interactable grid item
+        /// </summary>
+        public bool CanInteract(Vector2Int destination)
+        {
+            _gridItems.TryGetValue(destination, out GridItem targetItem);
+            return targetItem != null && targetItem is IInteractable;
+        }
+
         private bool IsFinishTile(Vector2Int destination)
         {
             return levelFinishTile == _tiles[destination];
@@ -88,6 +98,11 @@ namespace Assets.Scripts.Game.Grid
         public bool IsOccupied(Vector2Int coordinates)
         {
             return _gridItems.ContainsKey(coordinates);
+        }
+
+        public GridItem GetGridItem(Vector2Int coordinates)
+        {
+            return _gridItems.TryGetValue(coordinates, out var item) ? item : null;
         }
     }
 }

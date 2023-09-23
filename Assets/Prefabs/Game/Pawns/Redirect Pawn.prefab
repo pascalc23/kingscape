@@ -99,7 +99,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: P
+  m_text: R
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -180,9 +180,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1660696053169568939}
-  - component: {fileID: 5836839997779677700}
+  - component: {fileID: 713869533234505035}
   m_Layer: 0
-  m_Name: Simple Pawn
+  m_Name: Redirect Pawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -205,7 +205,7 @@ Transform:
   - {fileID: 6115374870788405729}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
---- !u!114 &5836839997779677700
+--- !u!114 &713869533234505035
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -214,10 +214,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 4594162250139674845}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 70df00e6c6a0482a82bb22d27f7c6a98, type: 3}
+  m_Script: {fileID: 11500000, guid: 309209d024f7436c899df1f96c35c1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   forwardVector: {x: -1, y: 0}
+  redirectToVector: {x: 0, y: -1}
 --- !u!1 &5409638743779635001
 GameObject:
   m_ObjectHideFlags: 0
