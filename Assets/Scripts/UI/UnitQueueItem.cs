@@ -16,7 +16,7 @@ public class UnitQueueItem : MonoBehaviour, IDropHandler
     {
         if (eventData.pointerDrag != null)
         {
-            var item = eventData.pointerDrag.GetComponent<UnitSelection>();
+            var item = eventData.pointerDrag.GetComponent<UnitSelectionItem>();
             prefabInQue = item.PrefabToSpawn;
             unitImage.sprite = item.UnitSprite;
         }

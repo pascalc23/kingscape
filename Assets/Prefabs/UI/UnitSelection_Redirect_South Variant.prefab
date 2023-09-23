@@ -96,6 +96,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Redirect South
       objectReference: {fileID: 0}
+    - target: {fileID: 5933399109603938414, guid: 4c555e2ab8cdaf74687f9a2fd75e7d8d, type: 3}
+      propertyPath: prefabToSpawn
+      value: 
+      objectReference: {fileID: 713869533234505035, guid: e2515f5d06133426486b483ea92b034d, type: 3}
     - target: {fileID: 7824754982355886954, guid: 4c555e2ab8cdaf74687f9a2fd75e7d8d, type: 3}
       propertyPath: m_Name
       value: UnitSelection_Redirect_South Variant
