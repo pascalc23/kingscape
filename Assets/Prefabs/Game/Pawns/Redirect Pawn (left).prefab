@@ -182,7 +182,7 @@ GameObject:
   - component: {fileID: 1660696053169568939}
   - component: {fileID: 713869533234505035}
   m_Layer: 0
-  m_Name: Redirect Pawn
+  m_Name: Redirect Pawn (left)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -218,7 +218,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   forwardVector: {x: -1, y: 0}
-  redirectToVector: {x: 0, y: -1}
+  redirectToVector: {x: -1, y: 0}
 --- !u!1 &5409638743779635001
 GameObject:
   m_ObjectHideFlags: 0

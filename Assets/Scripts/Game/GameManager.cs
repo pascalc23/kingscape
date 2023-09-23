@@ -14,6 +14,7 @@ namespace Assets.Scripts.Game
         public bool GameRunning { get; private set; }
 
         public UnityEvent<int> eventHeartbeat = new();
+        public UnityEvent<int> eventAfterHeartbeat = new();
 
         private GridManager _gridManager;
         private int _heartbeat;
@@ -46,6 +47,7 @@ namespace Assets.Scripts.Game
                 // Invoke heartbeat event that triggers all pawn movements
                 eventHeartbeat.Invoke(_heartbeat);
                 Debug.Log($"[{GetType().Name}] Heartbeat {_heartbeat}");
+                eventAfterHeartbeat.Invoke(_heartbeat);
                 _heartbeat++;
             }
         }

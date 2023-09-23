@@ -14,10 +14,10 @@ namespace Assets.Scripts.Game.Grid
         private void Start()
         {
             _gridManager = GridManager.Instance;
-            GameManager.Instance.eventHeartbeat.AddListener(OnHeartbeat);
+            GameManager.Instance.eventAfterHeartbeat.AddListener(AfterHeartbeat);
         }
 
-        private void OnHeartbeat(int heartbeat)
+        private void AfterHeartbeat(int heartbeat)
         {
             if (heartbeat >= gridItems.Length) return;
             GridItem itemPrefab = gridItems[heartbeat];
