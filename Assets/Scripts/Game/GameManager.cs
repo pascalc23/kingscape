@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Assets.Scripts.Common;
 using Assets.Scripts.Game.Grid;
+using Assets.Scripts.Game.GridObjects;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -10,6 +11,7 @@ namespace Assets.Scripts.Game
     public class GameManager : Singleton<GameManager>
     {
         [SerializeField] private float timeBetweenHeartbeats = 1f;
+        [SerializeField] private GridItem[] gridItems;
 
         public bool GameRunning { get; private set; }
 
@@ -27,12 +29,14 @@ namespace Assets.Scripts.Game
         private void Start()
         {
             _gridManager = GridManager.Instance;
-            StartLevel();
+            StartLevel(gridItems);
         }
 
-        public void StartLevel()
+        public void StartLevel(GridItem[] itemPrefabs)
         {
-            if (!_gridManager.IsLevelReady()) throw new Exception("Cannot start game - Level is not ready");
+            if (!_gridManager.IsLevelReady()) throw new Exception("Cannot start level - Level is not ready");
+            if (itemPrefabs == null || itemPrefabs.Length == 0) throw new Exception("Cannot start level - no item prefabs provided");
+            GridItemSpawner.Instance.SetItemsToSpawn(itemPrefabs);
             GameRunning = true;
             StartHeartbeat();
         }

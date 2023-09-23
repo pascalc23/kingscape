@@ -7,9 +7,9 @@ namespace Assets.Scripts.Game.GridObjects
     public class GridItemSpawner : Singleton<GridItemSpawner>
     {
         [SerializeField] private Transform container;
-        [SerializeField] private GridItem[] gridItems;
 
         private GridManager _gridManager;
+        private GridItem[] _gridItemPrefabs;
 
         private void Start()
         {
@@ -19,13 +19,13 @@ namespace Assets.Scripts.Game.GridObjects
 
         public void SetItemsToSpawn(GridItem[] gridItemPrefabs)
         {
-            gridItems = gridItemPrefabs;
+            _gridItemPrefabs = gridItemPrefabs;
         }
 
         private void AfterHeartbeat(int heartbeat)
         {
-            if (heartbeat >= gridItems.Length) return;
-            GridItem itemPrefab = gridItems[heartbeat];
+            if (heartbeat >= _gridItemPrefabs.Length) return;
+            GridItem itemPrefab = _gridItemPrefabs[heartbeat];
             if (itemPrefab != null)
             {
                 SpawnItem(itemPrefab);
