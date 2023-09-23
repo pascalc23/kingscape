@@ -325,4 +325,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   debugText: {fileID: 4857932502630686296}
   type: {fileID: 11400000, guid: 266a2f23cb4ab421fac88a1445a6833b, type: 2}
-  renderer: {fileID: 560543918227357750}
+  meshRenderer: {fileID: 560543918227357750}

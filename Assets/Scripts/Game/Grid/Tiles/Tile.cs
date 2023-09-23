@@ -1,58 +1,37 @@
+using Assets.Scripts.Game.GridObjects;
 using Assets.Scripts.Grid.Tiles.Types;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-namespace Assets.Scripts.Grid.Tiles
+namespace Assets.Scripts.Game.Grid.Tiles
 {
-    public class Tile : MonoBehaviour
+    public class Tile : GridItem
     {
         [SerializeField] private TextMeshPro debugText;
         [SerializeField] private TileTypeSO type;
-        [SerializeField] private MeshRenderer renderer;
+        [FormerlySerializedAs("renderer")] [SerializeField]
+        private MeshRenderer meshRenderer;
 
-        private GridManager _gridManager;
-        private Vector2Int _coordinates;
-
-        private void Awake()
+        protected override void OnStart()
         {
-            _gridManager = GridManager.Instance;
-            Initialize();
+            gridManager.RegisterTile(this);
         }
 
-        private void OnValidate()
+        protected override void Initialize()
         {
             UpdateName();
             UpdateMaterial();
-        }
-
-        private void Start()
-        {
-            _gridManager.RegisterTile(_coordinates, this);
-
-            UpdateName();
-            UpdateMaterial();
-        }
-
-        private void Initialize()
-        {
-            _coordinates = GetCoordinatesFromPosition();
-        }
-
-        private Vector2Int GetCoordinatesFromPosition()
-        {
-            var position = transform.position;
-            return new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z));
         }
 
         private void UpdateMaterial()
         {
-            renderer.material = type.material;
+            meshRenderer.material = type.material;
         }
 
-        public void UpdateName()
+        private void UpdateName()
         {
-            _coordinates = GetCoordinatesFromPosition();
-            string tileName = $"({_coordinates.x},{_coordinates.y})";
+            string tileName = $"({Coordinates.x},{Coordinates.y})";
             name = tileName;
             debugText.text = tileName;
         }
