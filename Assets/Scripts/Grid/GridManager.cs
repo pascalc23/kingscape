@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Assets.Scripts.Common;
+using Assets.Scripts.Grid.Tiles;
 using UnityEngine;
 
 namespace Assets.Scripts.Grid
