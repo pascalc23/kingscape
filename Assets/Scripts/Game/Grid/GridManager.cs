@@ -29,6 +29,12 @@ namespace Game.Grid
             _tiles.Clear();
             RegisterTiles(GetTiles(level.gridContainer));
 
+            // Set Start and End Tiles
+            Debug.Log($"[{GetType().Name}] Setting {level.startTile.Coordinates} as start tile");
+            levelStartTile = level.startTile;
+            Debug.Log($"[{GetType().Name}] Setting {level.startTile.Coordinates} as finish tile");
+            levelFinishTile = level.endTile;
+
             // Reset everything else so the level is clear to play
             ResetLevel();
         }

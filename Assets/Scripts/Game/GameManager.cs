@@ -53,8 +53,6 @@ namespace Game
             Reset();
             _gridItemSpawner.LoadLevel(level);
             _gridManager.LoadLevel(level);
-            _gridManager.levelStartTile = level.startTile;
-            _gridManager.levelFinishTile = level.endTile;
             _activeLevel = level;
 
             onLevelLoaded?.Invoke(level);
