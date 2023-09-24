@@ -37,14 +37,14 @@ namespace UI
             playButton.onClick.AddListener(OnPlayButtonPressed);
             retryLevel.onClick.AddListener(OnRetryLevelPressed);
             nextLevel.onClick.AddListener(OnNextLevelPressed);
-
-            gameManager.onLevelLoaded.AddListener(OnLevelLoaded);
         }
 
         private void Start()
         {
             gameManager.eventLevelComplete.AddListener(OnLevelComplete);
             gameManager.eventLevelFailed.AddListener(OnLevelFailed);
+
+            gameManager.onLevelLoaded.AddListener(OnLevelLoaded);
         }
 
         private void OnPlayButtonPressed()

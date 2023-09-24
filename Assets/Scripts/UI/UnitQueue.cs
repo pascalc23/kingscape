@@ -16,7 +16,7 @@ namespace UI
 
         private List<UnitQueueItem> unitQueueItems;
 
-        public GridItem[] GetQueue()
+        public MovingGridItem[] GetQueue()
         {
             return unitQueueItems.Select(x => x.PrefabInQue).ToArray();
         }
