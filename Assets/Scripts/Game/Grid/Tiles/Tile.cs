@@ -1,4 +1,4 @@
-using Assets.Scripts.Grid.Tiles.Types;
+using Game.Grid.Tiles.Types;
 using Game.GridObjects;
 using TMPro;
 using UnityEngine;

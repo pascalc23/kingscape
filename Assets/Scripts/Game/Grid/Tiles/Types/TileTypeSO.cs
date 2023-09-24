@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Grid.Tiles.Types
+namespace Game.Grid.Tiles.Types
 {
     [CreateAssetMenu(fileName = "Tile Type", menuName = "Kingscape/Tile Type", order = 1)]
     public class TileTypeSO : ScriptableObject
