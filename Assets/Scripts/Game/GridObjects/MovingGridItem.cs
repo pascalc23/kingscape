@@ -1,3 +1,4 @@
+using System;
 using Audio;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace Game.GridObjects
         [SerializeField] private GameObject model;
 
         protected Vector2Int forwardVector;
+        protected bool isHalted;
 
         public void Initialize(Vector2Int coordinates, Vector2Int forwardVector)
         {
@@ -31,10 +33,39 @@ namespace Game.GridObjects
             Move(forwardVector, () => AudioManager.Instance.OnMove());
         }
 
-        protected override void OnHalt()
+        private void Move(Vector2Int direction, Action onMove = null)
         {
-            base.OnHalt();
+            Vector2Int destination = Coordinates + direction;
+            Debug.Log($"'{name}' is trying to move from {Coordinates} to {destination}");
+            if (gridManager.CanMove(this, destination))
+            {
+                gridManager.Move(this, destination);
+                onMove?.Invoke();
+            }
+            else
+            {
+                Debug.Log($"'{name}' can't move from {Coordinates} to {destination}");
+                OnHalt();
+            }
+        }
+
+
+        /// <summary>
+        /// Called when the active item is trying to move but can't
+        /// </summary>
+        protected virtual void OnHalt()
+        {
+            isHalted = true;
             Debug.Log($"'{name}' halted at {Coordinates}");
+        }
+
+        /// <summary>
+        /// Called when the active item has reached the finish tile
+        /// </summary>
+        public virtual void OnFinish()
+        {
+            isHalted = true;
+            DestroySelf();
         }
 
         protected Vector2Int GetNextCoordinate()
