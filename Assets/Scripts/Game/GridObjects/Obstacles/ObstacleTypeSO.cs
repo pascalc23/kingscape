@@ -7,6 +7,5 @@ namespace Game.GridObjects.Obstacles
     {
         public string title;
         public bool isMovable;
-        public Transform visuals;
     }
 }
