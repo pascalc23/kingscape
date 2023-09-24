@@ -1,4 +1,3 @@
-using System;
 using Audio;
 using UnityEngine;
 
@@ -30,17 +29,17 @@ namespace Game.GridObjects
         {
             if (isHalted) return;
             Interact(forwardVector); // Try to interact first
-            Move(forwardVector, () => AudioManager.Instance.OnMove());
+            Move(forwardVector);
         }
 
-        private void Move(Vector2Int direction, Action onMove = null)
+        private void Move(Vector2Int direction)
         {
             Vector2Int destination = Coordinates + direction;
             Debug.Log($"'{name}' is trying to move from {Coordinates} to {destination}");
             if (gridManager.CanMove(this, destination))
             {
                 gridManager.Move(this, destination);
-                onMove?.Invoke();
+                AudioManager.Instance.OnMove();
             }
             else
             {
