@@ -33,6 +33,7 @@ namespace Game.GridObjects
         protected void Move(Vector2Int direction, Action onMove = null)
         {
             Vector2Int destination = Coordinates + direction;
+            Debug.Log($"'{name}' is trying to move from {Coordinates} to {destination}");
             if (gridManager.CanMove(this, destination))
             {
                 gridManager.Move(this, destination);
@@ -40,6 +41,7 @@ namespace Game.GridObjects
             }
             else
             {
+                Debug.Log($"'{name}' can't move from {Coordinates} to {destination}");
                 OnHalt();
             }
         }

@@ -1,12 +1,12 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using Audio;
 using Common;
 using Game.Grid.Tiles;
 using Game.GridObjects;
 using Game.GridObjects.Obstacles;
 using Game.Levels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -32,8 +32,11 @@ namespace Game.Grid
             // Set Start and End Tiles
             Debug.Log($"[{GetType().Name}] Setting {level.startTile.Coordinates} as start tile");
             levelStartTile = level.startTile;
+            RegisterTile(levelStartTile);
+
             Debug.Log($"[{GetType().Name}] Setting {level.finishTile.Coordinates} as finish tile");
             levelFinishTile = level.finishTile;
+            RegisterTile(levelFinishTile);
 
             // Reset everything else so the level is clear to play
             ResetLevel();
@@ -73,13 +76,28 @@ namespace Game.Grid
         public bool CanMove(ActiveGridItem activeGridItemBase, Vector2Int destination)
         {
             // If the target tile does not exist we cannot move there
-            if (!_tiles.TryGetValue(destination, out Tile targetTile)) return false;
+            if (!_tiles.TryGetValue(destination, out Tile targetTile))
+            {
+                Debug.Log($"[{GetType().Name}] Can't move to {destination} - target tile does not exist");
+                return false;
+            }
 
             // If the target tile is impassable we cannot move there
-            if (targetTile.Type.isWalkable == false) return false;
+            if (targetTile.Type.isWalkable == false)
+            {
+                Debug.Log($"[{GetType().Name}] Can't move to {destination} - target tile of type '{targetTile.Type.title}' is not walkable");
+                return false;
+            }
 
             // If the destination is already occupied we cannot move there
-            return !IsOccupied(destination);
+            if (IsOccupied(destination))
+            {
+                GridItem gridItem = GetGridItem(destination);
+                Debug.Log($"[{GetType().Name}] Can't move to {destination} - target tile of type '{targetTile.Type.title}' is occupied by item '{gridItem.name}'");
+                return false;
+            }
+
+            return true;
         }
 
         public void Move(ActiveGridItem activeGridItem, Vector2Int destination)
