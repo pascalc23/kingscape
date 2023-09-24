@@ -8,6 +8,8 @@ namespace UI
         [SerializeField] private Button playButton;
         [SerializeField] private Button quitButton;
 
+        [SerializeField] private int DEBUG_Level_Idx = 0;
+
         private void Awake()
         {
             playButton.onClick.AddListener(OnPlayButtonClicked);
@@ -21,7 +23,7 @@ namespace UI
 
         private void OnPlayButtonClicked()
         {
-            LevelLoader.Instance.LoadLevel(0);
+            LevelLoader.Instance.LoadLevel(DEBUG_Level_Idx);
         }
     }
 }
