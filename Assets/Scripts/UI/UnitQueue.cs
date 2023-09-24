@@ -14,7 +14,7 @@ namespace UI
         [SerializeField]
         private UnitQueueItem unitQueueItemPrefab;
 
-        private List<UnitQueueItem> unitQueueItems;
+        private List<UnitQueueItem> unitQueueItems = new List<UnitQueueItem>();
 
         public MovingGridItem[] GetQueue()
         {
