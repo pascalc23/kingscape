@@ -45,7 +45,14 @@ namespace Game.GridObjects
         private void SpawnItem(MovingGridItem itemPrefab)
         {
             MovingGridItem gridItem = Instantiate(itemPrefab, container);
+            LevelItemWithGrid(gridItem);
             gridItem.Initialize(_gridManager.levelStartTile.Coordinates, _activeLevel.startDirection);
+        }
+
+        private void LevelItemWithGrid(MovingGridItem gridItem)
+        {
+            var position = gridItem.transform.position;
+            gridItem.transform.position = new Vector3(position.x, _gridManager.levelStartTile.transform.position.y, position.z);
         }
     }
 }
