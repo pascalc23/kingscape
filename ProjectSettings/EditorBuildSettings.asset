@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Pascal.unity
-    guid: d8cb82fe8d2854527b2bfb016b7dc746
+    path: Assets/Scenes/MainMenu.unity
+    guid: 5c2ca69faa847ea468e62c56e4708873
+  - enabled: 1
+    path: Assets/Scenes/House_1.unity
+    guid: b73e4fb6602cd604895b059a51733599
   m_configObjects: {}

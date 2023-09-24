@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Audio;
 using Common;
 using Game.Grid;
@@ -13,6 +14,7 @@ namespace Game
     public class GameManager : Singleton<GameManager>
     {
         [SerializeField] private float timeBetweenHeartbeats = 1f;
+        [SerializeField] private List<Level> levelOrder;
 
         public bool GameRunning { get; private set; }
 
@@ -24,7 +26,7 @@ namespace Game
 
         private GridManager _gridManager;
         private int _heartbeat;
-        private LevelSO _activeLevel;
+        private Level _activeLevel;
 
         public float TimeBetweenHeartbeats => timeBetweenHeartbeats;
 
@@ -33,15 +35,22 @@ namespace Game
             _gridManager = GridManager.Instance;
         }
 
+        public void LoadLevelFromMainMenu(int levelIdx)
+        {
+            LoadLevel(levelOrder[levelIdx]);
+        }
+
         /// <summary>
         /// Loads a new level.
         /// </summary>
         /// <param name="gridContainer">The container in which the levels grid is hosted. Expects 'Tiles' as children.</param>
-        public void LoadLevel(LevelSO level, Transform gridContainer)
+        public void LoadLevel(Level level)
         {
             Debug.Log($"[{GetType().Name}] Loading Level '{level.title}'");
             Reset();
-            _gridManager.LoadLevel(gridContainer);
+            _gridManager.LoadLevel(level.gridContainer);
+            _gridManager.levelStartTile = level.startTile;
+            _gridManager.levelFinishTile = level.endTile;
             _activeLevel = level;
         }
 
