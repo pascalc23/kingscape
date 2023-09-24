@@ -3965,7 +3965,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: (2,6)
+  m_text: (1,6)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6429,7 +6429,7 @@ GameObject:
   - component: {fileID: 548571412227623652}
   - component: {fileID: 7855581278559608164}
   m_Layer: 0
-  m_Name: (2,6)
+  m_Name: (1,6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6444,7 +6444,7 @@ Transform:
   m_GameObject: {fileID: 7016152406658131212}
   serializedVersion: 2
   m_LocalRotation: {x: 0.5, y: -0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: 2.6299834, y: 0, z: 6.2860007}
+  m_LocalPosition: {x: 1.6299832, y: 0, z: 6.2860007}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8230,7 +8230,6 @@ MonoBehaviour:
   - {fileID: 920865983162793666}
   availablePawns:
   - {fileID: 965224866733810470, guid: 746a5c8c4edc5463e8b7346ae73f5511, type: 3}
-  - {fileID: 6845386314575682607, guid: 6f385ef5221974851a7237f04bbc09f8, type: 3}
   - {fileID: 713869533234505035, guid: e2515f5d06133426486b483ea92b034d, type: 3}
   - {fileID: 713869533234505035, guid: 0cbb4fe2f7f0944eda6dbeced91f9e9c, type: 3}
   - {fileID: 713869533234505035, guid: 7548fba175f3c479e90465e12b387af6, type: 3}

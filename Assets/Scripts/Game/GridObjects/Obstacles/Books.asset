@@ -13,5 +13,4 @@ MonoBehaviour:
   m_Name: Books
   m_EditorClassIdentifier: 
   title: Books
-  isMovable: 1
-  visuals: {fileID: -8679921383154817045, guid: b7cefff9e9ac5c947a2a581b52f62e78, type: 3}
+  isMovable: 0
