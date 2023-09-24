@@ -15,6 +15,7 @@ namespace Game.GridObjects
         {
             base.Initialize(coordinates);
             this.forwardVector = forwardVector;
+            model.transform.right = new Vector3(-forwardVector.x, 0, -forwardVector.y);
         }
 
         public void ChangeDirection(Vector2Int direction)
