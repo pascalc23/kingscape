@@ -9655,6 +9655,8 @@ MonoBehaviour:
   title: Level 3
   description: 
   levelCam: {fileID: 8741908137394972215}
+  obstacles:
+  - {fileID: 352686580522719739}
   availablePawns:
   - {fileID: 965224866733810470, guid: 746a5c8c4edc5463e8b7346ae73f5511, type: 3}
   - {fileID: 713869533234505035, guid: e2515f5d06133426486b483ea92b034d, type: 3}
@@ -12750,6 +12752,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+--- !u!114 &352686580522719739 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5872141949288156670, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
+  m_PrefabInstance: {fileID: 6168514692007793669}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfc12829e96c45dd9dae6ae6bff5e644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4796629564412897454 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1660696053169568939, guid: 0912da64109524502b2da186a24c6a4d, type: 3}
