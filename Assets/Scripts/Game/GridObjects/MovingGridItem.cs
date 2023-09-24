@@ -1,14 +1,22 @@
-using Audio;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Game.GridObjects
 {
+    [RequireComponent(typeof(AudioSource))]
     public abstract class MovingGridItem : ActiveGridItem
     {
         [SerializeField] private GameObject model;
+        [SerializeField] private AudioClip moveSfx;
 
         protected Vector2Int forwardVector;
         protected bool isHalted;
+        protected AudioSource audioSource;
+
+        private void Awake()
+        {
+            audioSource = GetComponent<AudioSource>();
+        }
 
         public void Initialize(Vector2Int coordinates, Vector2Int forwardVector)
         {
@@ -39,7 +47,12 @@ namespace Game.GridObjects
             if (gridManager.CanMove(this, destination))
             {
                 gridManager.Move(this, destination);
-                AudioManager.Instance.OnMove();
+                if (moveSfx != null)
+                {
+                    // wait a bit before playing the SFX - not ideal, needs better configuration
+                    Task.Delay(Mathf.RoundToInt(GameManager.Instance.TimeBetweenHeartbeats * 0.7f * 1000));
+                    audioSource.PlayOneShot(moveSfx);
+                }
             }
             else
             {
