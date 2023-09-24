@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &6115374870788405729
 RectTransform:
   m_ObjectHideFlags: 0
@@ -219,7 +219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animTimeScale: 0.98
-  forwardVector: {x: -1, y: 0}
   model: {fileID: 6720534736944200621}
 --- !u!1 &5409638743779635001
 GameObject:
@@ -237,7 +236,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7979754380326126796
 Transform:
   m_ObjectHideFlags: 0
