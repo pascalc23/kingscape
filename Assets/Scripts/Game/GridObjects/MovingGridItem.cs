@@ -50,8 +50,8 @@ namespace Game.GridObjects
                 if (moveSfx != null)
                 {
                     // wait a bit before playing the SFX - not ideal, needs better configuration
-                    Task.Delay(Mathf.RoundToInt(GameManager.Instance.TimeBetweenHeartbeats * 0.7f * 1000));
-                    audioSource.PlayOneShot(moveSfx);
+                    Task.Delay(Mathf.RoundToInt(GameManager.Instance.TimeBetweenHeartbeats * 1000));
+                    audioSource.PlayOneShot(moveSfx, 0.5f);
                 }
             }
             else
