@@ -4,13 +4,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using DG.Tweening;
 
 public class LevelLoader : Singleton<LevelLoader>
 {
+    [SerializeField]
+    private CanvasGroup fadeImage;
+
     protected override void Awake()
     {
         base.Awake();
         DontDestroyOnLoad(this);
+        fadeImage.gameObject.SetActive(false);
     }
 
     public void LoadLevel(int levelIdx)
@@ -20,7 +26,10 @@ public class LevelLoader : Singleton<LevelLoader>
 
     private IEnumerator LoadLevelEx(int levelIdx)
     {
-        // TODO: fade to black & block UI buttons from being clicked
+        fadeImage.gameObject.SetActive(true);
+        fadeImage.DOFade(1, 1f);
+        yield return new WaitForSeconds(1.1f);
+
         var load = SceneManager.LoadSceneAsync("House_1");
         while (!load.isDone)
         {
@@ -28,5 +37,9 @@ public class LevelLoader : Singleton<LevelLoader>
         }
         yield return new WaitForEndOfFrame();
         GameManager.Instance.LoadLevelFromMainMenu(levelIdx);
+
+        fadeImage.DOFade(0, 1f);
+        yield return new WaitForSeconds(1.1f);
+        fadeImage.gameObject.SetActive(false);
     }
 }
