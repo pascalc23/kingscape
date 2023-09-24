@@ -50,7 +50,10 @@ namespace Game.Grid
             // Destroy all items we spawned into the grid
             foreach (GridItem gridItem in _gridItems.Values)
             {
-                Destroy(gridItem.gameObject);
+                if (gridItem is MovingGridItem)
+                {
+                    Destroy(gridItem.gameObject);
+                }
             }
 
             // Clear lists of active grid items - we leave the tiles
