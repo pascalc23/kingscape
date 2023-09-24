@@ -9,7 +9,7 @@ namespace Game.GridObjects
     {
         public void Initialize(Vector2Int coordinates)
         {
-            SetCoordinates(coordinates, false);
+            SetCoordinates(coordinates);
         }
 
         protected void DestroySelf()

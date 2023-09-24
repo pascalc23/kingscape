@@ -24,33 +24,40 @@ namespace Game.GridObjects
         {
         }
 
-        public void SetCoordinates(Vector2Int value, bool animateUpdate = true)
+        public void SetCoordinates(Vector2Int value)
         {
             Coordinates = value;
-            UpdateWorldPosition(animateUpdate);
         }
-        
-        private void UpdateWorldPosition(bool animate)
+
+        public void ChangeCoordinates(Vector2Int destination, bool animateUpdate = true)
         {
+            Vector2Int delta = destination - Coordinates;
+            SetCoordinates(destination);
+            ChangeWorldPosition(delta, animateUpdate);
+        }
+
+        private void ChangeWorldPosition(Vector2Int deltaCoordinates, bool animate)
+        {
+            Vector3 deltaPosition = new Vector3(deltaCoordinates.x, 0, deltaCoordinates.y);
             if (animate)
             {
-                AnimateUpdatePosition();
+                AnimateUpdatePosition(deltaPosition);
             }
             else
             {
-                transform.position = new Vector3(Coordinates.x, transform.position.y, Coordinates.y);
+                transform.localPosition += deltaPosition;
             }
         }
 
-        private void AnimateUpdatePosition()
+        private void AnimateUpdatePosition(Vector3 deltaPosition)
         {
-            transform.DOMove(new Vector3(Coordinates.x, transform.position.y, Coordinates.y), GameManager.Instance.TimeBetweenHeartbeats * animTimeScale);
+            transform.DOMove(transform.localPosition + deltaPosition, GameManager.Instance.TimeBetweenHeartbeats * animTimeScale);
         }
 
         protected Vector2Int GetCoordinatesFromWorldPosition()
         {
-            var position = transform.position;
-            return new Vector2Int(Mathf.RoundToInt(position.x), Mathf.RoundToInt(position.z));
+            var position = transform.localPosition;
+            return new Vector2Int(Mathf.FloorToInt(position.x), Mathf.FloorToInt(position.z));
         }
     }
 }

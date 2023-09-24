@@ -198,7 +198,7 @@ namespace Game.Grid
             _gridItems.Remove(gridItem.Coordinates);
 
             // Update coordinates and grid position
-            gridItem.SetCoordinates(destination);
+            gridItem.ChangeCoordinates(destination);
             _gridItems[destination] = gridItem;
             Debug.Log($"[{GetType().Name}] Moved item '{gridItem.name}' to coordinates {destination}");
         }
