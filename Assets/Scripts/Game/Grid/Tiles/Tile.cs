@@ -45,7 +45,7 @@ namespace Game.Grid.Tiles
 
         private void UpdateCoordinates()
         {
-            SetCoordinates(GetCoordinatesFromWorldPosition(), false);
+            SetCoordinates(GetCoordinatesFromWorldPosition());
         }
 
         private void UpdateMaterial()
