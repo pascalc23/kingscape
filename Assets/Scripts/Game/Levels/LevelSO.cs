@@ -12,7 +12,7 @@ namespace Game.Levels
     public class LevelSO : ScriptableObject
     {
         [Tooltip("The scene in which the level lives")]
-        public Scene scene;
+        public string sceneName;
         [Tooltip("The active camera for this level - we'll do a transition from the previous level's camera to this one")]
         public CinemachineVirtualCamera camera;
         [Tooltip("The container in which the levels grid is hosted. Expects 'Tiles' as children.")]

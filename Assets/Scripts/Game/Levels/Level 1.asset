@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13928f8fbcced4b739cfb590f0bc17a0, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  scene:
-    m_Handle: 0
+  sceneName: Levels1to10
   camera: {fileID: 0}
+  levelGrid: {fileID: 0}
   availablePawns:
   - {fileID: 965224866733810470, guid: 746a5c8c4edc5463e8b7346ae73f5511, type: 3}
