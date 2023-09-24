@@ -38,6 +38,12 @@ namespace Game.Grid
             levelFinishTile = level.finishTile;
             RegisterTile(levelFinishTile);
 
+            // Register all obstacles
+            foreach (Obstacle obstacle in level.obstacles)
+            {
+                RegisterGridItem(obstacle);
+            }
+
             // Reset everything else so the level is clear to play
             ResetLevel();
         }
@@ -47,17 +53,13 @@ namespace Game.Grid
         /// </summary>
         public void ResetLevel()
         {
-            // Destroy all items we spawned into the grid
-            foreach (GridItem gridItem in _gridItems.Values)
+            // Destroy all items we spawned into the grid and remove them from the grid items
+            List<GridItem> movingGridItems = _gridItems.Values.ToList().FindAll(item => item is MovingGridItem);
+            foreach (GridItem gridItem in movingGridItems)
             {
-                if (gridItem is MovingGridItem)
-                {
-                    Destroy(gridItem.gameObject);
-                }
+                _gridItems.Remove(gridItem.Coordinates);
+                Destroy(gridItem.gameObject);
             }
-
-            // Clear lists of active grid items - we leave the tiles
-            _gridItems.Clear();
         }
 
         public void RegisterGridItem(GridItem gridItem)

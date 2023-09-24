@@ -47,6 +47,9 @@ namespace Game.GridObjects
             MovingGridItem gridItem = Instantiate(itemPrefab, container);
             LevelItemWithGrid(gridItem);
             gridItem.Initialize(_gridManager.levelStartTile.Coordinates, _activeLevel.startDirection);
+
+            // Register the spawned item with the grid manager 
+            _gridManager.RegisterGridItem(gridItem);
         }
 
         private void LevelItemWithGrid(MovingGridItem gridItem)

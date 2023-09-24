@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Cinemachine;
 using Game.Grid.Tiles;
 using Game.GridObjects;
+using Game.GridObjects.Obstacles;
 using UnityEngine;
 
 namespace Game.Levels
@@ -14,6 +15,8 @@ namespace Game.Levels
         public string description;
         [Tooltip("The active camera for this level - we'll do a transition from the previous level's camera to this one")]
         public CinemachineVirtualCamera levelCam;
+        [Tooltip("The prefabs of all obstacles of this level")]
+        public List<Obstacle> obstacles;
         [Tooltip("The prefabs of available pawns for the player to place")]
         public List<MovingGridItem> availablePawns;
         [Tooltip("The number of pawn slots that are available for the player to place pawns in this level")]

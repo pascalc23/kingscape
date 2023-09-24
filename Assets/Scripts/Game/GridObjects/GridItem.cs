@@ -1,4 +1,3 @@
-using Game.Grid;
 using UnityEngine;
 
 namespace Game.GridObjects
@@ -11,7 +10,6 @@ namespace Game.GridObjects
         public void Initialize(Vector2Int coordinates)
         {
             SetCoordinates(coordinates, false);
-            GridManager.Instance.RegisterGridItem(this);
         }
 
         protected void DestroySelf()
