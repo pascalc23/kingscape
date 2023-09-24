@@ -28,7 +28,6 @@ namespace Game.Grid.Tiles
 
         protected override void OnStart()
         {
-            gridManager.RegisterTile(this);
             UpdateVisuals();
         }
 

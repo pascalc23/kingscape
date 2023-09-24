@@ -5,6 +5,7 @@ using Common;
 using Game.Grid.Tiles;
 using Game.GridObjects;
 using Game.GridObjects.Obstacles;
+using Game.Levels;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -18,21 +19,32 @@ namespace Game.Grid
         private Dictionary<Vector2Int, Tile> _tiles = new();
         private Dictionary<Vector2Int, GridItem> _gridItems = new();
 
+        /// <summary>
+        /// Loads a new level.
+        /// </summary>
+        public void LoadLevel(LevelSO level)
+        {
+            // Clear the old tiles and register the new level's tiles
+            _tiles.Clear();
+            RegisterTiles(level.GetTiles());
+
+            // Reset everything else so the level is clear to play
+            ResetLevel();
+        }
+
+        /// <summary>
+        /// Resets the current level so the player can try again
+        /// </summary>
         public void ResetLevel()
         {
+            // Destroy all items we spawned into the grid
             foreach (GridItem gridItem in _gridItems.Values)
             {
                 Destroy(gridItem.gameObject);
             }
 
+            // Clear lists of active grid items - we leave the tiles
             _gridItems.Clear();
-        }
-
-        public void RegisterTile(Tile tile)
-        {
-            if (_tiles.ContainsKey(tile.Coordinates)) throw new Exception($"Cannot register tile at coordinate {tile.Coordinates} - Another tile is already occupying that space");
-            _tiles[tile.Coordinates] = tile;
-            Debug.Log($"[{GetType().Name}] Registered tile '{tile.name}' at coordinates {tile.Coordinates}");
         }
 
         public void RegisterGridItem(GridItem gridItem)
@@ -154,6 +166,18 @@ namespace Game.Grid
             gridItem.SetCoordinates(destination);
             _gridItems[destination] = gridItem;
             Debug.Log($"[{GetType().Name}] Moved item '{gridItem.name}' to coordinates {destination}");
+        }
+
+        private void RegisterTiles(List<Tile> tiles)
+        {
+            tiles.ForEach(RegisterTile);
+        }
+
+        private void RegisterTile(Tile tile)
+        {
+            if (_tiles.ContainsKey(tile.Coordinates)) throw new Exception($"Cannot register tile at coordinate {tile.Coordinates} - Another tile is already occupying that space");
+            _tiles[tile.Coordinates] = tile;
+            Debug.Log($"[{GetType().Name}] Registered tile '{tile.name}' at coordinates {tile.Coordinates}");
         }
     }
 }

@@ -4,6 +4,7 @@ using Audio;
 using Common;
 using Game.Grid;
 using Game.GridObjects;
+using Game.Levels;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,7 +13,6 @@ namespace Game
     public class GameManager : Singleton<GameManager>
     {
         [SerializeField] private float timeBetweenHeartbeats = 1f;
-        [SerializeField] private GridItem[] gridItems;
 
         public bool GameRunning { get; private set; }
 
@@ -30,9 +30,20 @@ namespace Game
         private void Start()
         {
             _gridManager = GridManager.Instance;
-            StartLevel(gridItems);
         }
 
+        /// <summary>
+        /// Loads a new level.
+        /// </summary>
+        public void LoadLevel(LevelSO level)
+        {
+            Reset();
+            _gridManager.LoadLevel(level);
+        }
+
+        /// <summary>
+        /// Starts the current level with the <paramref name="itemPrefabs"/> that the player selected in the given order.
+        /// </summary>
         public void StartLevel(GridItem[] itemPrefabs)
         {
             if (!_gridManager.IsLevelReady()) throw new Exception("Cannot start level - Level is not ready");
@@ -42,9 +53,19 @@ namespace Game
             StartHeartbeat();
         }
 
+        /// <summary>
+        /// Resets the current level so the player can try again
+        /// </summary>
         public void ResetLevel()
         {
+            Reset();
             _gridManager.ResetLevel();
+        }
+
+        private void Reset()
+        {
+            GameRunning = false;
+            StopAllCoroutines();
         }
 
         private void StartHeartbeat()
