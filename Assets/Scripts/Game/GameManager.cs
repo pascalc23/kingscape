@@ -34,6 +34,7 @@ namespace Game
         private void Start()
         {
             _gridManager = GridManager.Instance;
+            _gridItemSpawner = GridItemSpawner.Instance;
         }
 
         public void LoadLevelFromMainMenu(int levelIdx)
