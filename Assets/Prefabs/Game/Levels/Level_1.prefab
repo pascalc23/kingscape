@@ -8222,7 +8222,7 @@ MonoBehaviour:
   - {fileID: 965224866733810470, guid: 746a5c8c4edc5463e8b7346ae73f5511, type: 3}
   pawnSlots: 4
   startTile: {fileID: 2611410555177321983}
-  endTile: {fileID: 969583143603023683}
+  finishTile: {fileID: 969583143603023683}
   gridContainer: {fileID: 7775971937964264831}
   startDirection: {x: 1, y: 0}
 --- !u!1 &8098654463046176350

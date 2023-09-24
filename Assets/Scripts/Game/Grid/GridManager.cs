@@ -1,12 +1,12 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Audio;
 using Common;
 using Game.Grid.Tiles;
 using Game.GridObjects;
 using Game.GridObjects.Obstacles;
 using Game.Levels;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -32,8 +32,8 @@ namespace Game.Grid
             // Set Start and End Tiles
             Debug.Log($"[{GetType().Name}] Setting {level.startTile.Coordinates} as start tile");
             levelStartTile = level.startTile;
-            Debug.Log($"[{GetType().Name}] Setting {level.startTile.Coordinates} as finish tile");
-            levelFinishTile = level.endTile;
+            Debug.Log($"[{GetType().Name}] Setting {level.finishTile.Coordinates} as finish tile");
+            levelFinishTile = level.finishTile;
 
             // Reset everything else so the level is clear to play
             ResetLevel();

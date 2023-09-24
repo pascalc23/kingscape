@@ -20,7 +20,7 @@ namespace Game.Levels
         public int pawnSlots;
 
         public Tile startTile;
-        public Tile endTile;
+        public Tile finishTile;
 
         public Transform gridContainer;
 

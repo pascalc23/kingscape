@@ -9665,7 +9665,7 @@ MonoBehaviour:
   - {fileID: 0}
   pawnSlots: 6
   startTile: {fileID: 3321400633135740632}
-  endTile: {fileID: 8876585321099574771}
+  finishTile: {fileID: 8876585321099574771}
   gridContainer: {fileID: 1255062260582652691}
   startDirection: {x: 0, y: 0}
 --- !u!1 &7209940244462284591
