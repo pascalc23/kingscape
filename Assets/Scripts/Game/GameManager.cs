@@ -8,6 +8,7 @@ using Game.GridObjects;
 using Game.Levels;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 namespace Game
 {
@@ -48,7 +49,7 @@ namespace Game
             var nextLevelIdx = levelOrder.IndexOf(_activeLevel) + 1;
             if (levelOrder.Count < nextLevelIdx)
             {
-                Debug.LogError($"NextLevelIdx {nextLevelIdx} is larger than available levels - no more levels to load!");
+                SceneManager.LoadScene("ThxForPlaying");
                 return;
             }
             LoadLevel(levelOrder[nextLevelIdx]);
