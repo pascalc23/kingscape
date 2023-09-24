@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Game.GridObjects
@@ -8,8 +7,6 @@ namespace Game.GridObjects
     /// </summary>
     public abstract class ActiveGridItem : GridItem
     {
-        protected bool isHalted;
-
         protected override void OnStart()
         {
             base.OnStart();
@@ -30,41 +27,8 @@ namespace Game.GridObjects
             }
         }
 
-        protected void Move(Vector2Int direction, Action onMove = null)
-        {
-            Vector2Int destination = Coordinates + direction;
-            Debug.Log($"'{name}' is trying to move from {Coordinates} to {destination}");
-            if (gridManager.CanMove(this, destination))
-            {
-                gridManager.Move(this, destination);
-                onMove?.Invoke();
-            }
-            else
-            {
-                Debug.Log($"'{name}' can't move from {Coordinates} to {destination}");
-                OnHalt();
-            }
-        }
-
         protected virtual void OnInteract(IInteractable interactable)
         {
-        }
-
-        /// <summary>
-        /// Called when the active item is trying to move but can't
-        /// </summary>
-        protected virtual void OnHalt()
-        {
-            isHalted = true;
-        }
-
-        /// <summary>
-        /// Called when the active item has reached the finish tile
-        /// </summary>
-        public virtual void OnFinish()
-        {
-            isHalted = true;
-            DestroySelf();
         }
     }
 }

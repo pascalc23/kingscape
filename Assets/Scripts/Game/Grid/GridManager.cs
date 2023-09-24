@@ -100,24 +100,24 @@ namespace Game.Grid
             return true;
         }
 
-        public void Move(ActiveGridItem activeGridItem, Vector2Int destination)
+        public void Move(MovingGridItem gridItem, Vector2Int destination)
         {
             // Ensure we actually are still located at the current coordinates
-            Assert.IsTrue(_gridItems[activeGridItem.Coordinates] == activeGridItem);
+            Assert.IsTrue(_gridItems[gridItem.Coordinates] == gridItem);
 
             // If the destination is already occupied we cannot move there
-            if (!CanMove(activeGridItem, destination))
+            if (!CanMove(gridItem, destination))
             {
-                throw new Exception($"[{GetType().Name}] I tried to move item '{activeGridItem.name}' to grid location {destination} but I cannot move there");
+                throw new Exception($"[{GetType().Name}] I tried to move item '{gridItem.name}' to grid location {destination} but I cannot move there");
             }
 
             // Move the piece
-            MoveItem(activeGridItem, destination);
+            MoveItem(gridItem, destination);
 
             // Check if the item is on the finish tile
             if (IsFinishTile(destination))
             {
-                activeGridItem.OnFinish();
+                gridItem.OnFinish();
             }
         }
 
