@@ -19,6 +19,7 @@ namespace Game.Grid
 
         private Dictionary<Vector2Int, Tile> _tiles = new();
         private Dictionary<Vector2Int, GridItem> _gridItems = new();
+        private Dictionary<Obstacle, Vector2Int> _initialObstacleCoordinates = new();
 
         /// <summary>
         /// Loads a new level.
@@ -38,14 +39,11 @@ namespace Game.Grid
             levelFinishTile = level.finishTile;
             RegisterTile(levelFinishTile);
 
-            // Register all obstacles
-            foreach (Obstacle obstacle in level.obstacles)
-            {
-                RegisterGridItem(obstacle);
-            }
-
             // Reset everything else so the level is clear to play
-            ResetLevel();
+            DestroyAllSpawnedItems(true);
+
+            // Register all obstacles
+            level.obstacles.ForEach(RegisterObstacle);
         }
 
         /// <summary>
@@ -53,13 +51,35 @@ namespace Game.Grid
         /// </summary>
         public void ResetLevel()
         {
+            DestroyAllSpawnedItems(false);
+            ResetObstaclePositions();
+        }
+
+        private void ResetObstaclePositions()
+        {
+            // Reset all obstacles to their original position
+            foreach (Obstacle obstacle in _initialObstacleCoordinates.Keys)
+            {
+                obstacle.ChangeCoordinates(_initialObstacleCoordinates[obstacle]);
+            }
+        }
+
+        private void DestroyAllSpawnedItems(bool includeObstacles)
+        {
             // Destroy all items we spawned into the grid and remove them from the grid items
-            List<GridItem> movingGridItems = _gridItems.Values.ToList().FindAll(item => item is MovingGridItem);
+            List<GridItem> itemList = _gridItems.Values.ToList();
+            List<GridItem> movingGridItems = includeObstacles ? itemList.FindAll(item => item is MovingGridItem or Obstacle) : itemList.FindAll(item => item is MovingGridItem);
             foreach (GridItem gridItem in movingGridItems)
             {
                 _gridItems.Remove(gridItem.Coordinates);
                 Destroy(gridItem.gameObject);
             }
+        }
+
+        private void RegisterObstacle(Obstacle obstacle)
+        {
+            RegisterGridItem(obstacle);
+            _initialObstacleCoordinates[obstacle] = obstacle.Coordinates;
         }
 
         public void RegisterGridItem(GridItem gridItem)
