@@ -1,5 +1,6 @@
 using Common;
 using Game.Grid;
+using Game.Levels;
 using UnityEngine;
 
 namespace Game.GridObjects
@@ -9,7 +10,8 @@ namespace Game.GridObjects
         [SerializeField] private Transform container;
 
         private GridManager _gridManager;
-        private GridItem[] _gridItemPrefabs;
+        private MovingGridItem[] _gridItemPrefabs;
+        private Level _activeLevel;
 
         private void Start()
         {
@@ -17,7 +19,15 @@ namespace Game.GridObjects
             GameManager.Instance.eventAfterHeartbeat.AddListener(AfterHeartbeat);
         }
 
-        public void SetItemsToSpawn(GridItem[] gridItemPrefabs)
+        /// <summary>
+        /// Loads a new level.
+        /// </summary>
+        public void LoadLevel(Level level)
+        {
+            _activeLevel = level;
+        }
+
+        public void SetItemsToSpawn(MovingGridItem[] gridItemPrefabs)
         {
             _gridItemPrefabs = gridItemPrefabs;
         }
@@ -25,17 +35,17 @@ namespace Game.GridObjects
         private void AfterHeartbeat(int heartbeat)
         {
             if (heartbeat >= _gridItemPrefabs.Length) return;
-            GridItem itemPrefab = _gridItemPrefabs[heartbeat];
+            MovingGridItem itemPrefab = _gridItemPrefabs[heartbeat];
             if (itemPrefab != null)
             {
                 SpawnItem(itemPrefab);
             }
         }
 
-        private void SpawnItem(GridItem itemPrefab)
+        private void SpawnItem(MovingGridItem itemPrefab)
         {
-            GridItem gridItem = Instantiate(itemPrefab, container);
-            gridItem.Initialize(_gridManager.levelStartTile.Coordinates);
+            MovingGridItem gridItem = Instantiate(itemPrefab, container);
+            gridItem.Initialize(_gridManager.levelStartTile.Coordinates, _activeLevel.startDirection);
         }
     }
 }
