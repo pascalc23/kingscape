@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 13928f8fbcced4b739cfb590f0bc17a0, type: 3}
   m_Name: Level 3
   m_EditorClassIdentifier: 
+  title: Level 3
+  description: 
   sceneName: Levels1to10
   camera: {fileID: 0}
-  levelGrid: {fileID: 0}
   availablePawns:
   - {fileID: 965224866733810470, guid: 746a5c8c4edc5463e8b7346ae73f5511, type: 3}
   - {fileID: 713869533234505035, guid: e2515f5d06133426486b483ea92b034d, type: 3}
@@ -22,3 +23,4 @@ MonoBehaviour:
   - {fileID: 713869533234505035, guid: 7548fba175f3c479e90465e12b387af6, type: 3}
   - {fileID: 713869533234505035, guid: a8a45d0eef039461c9653a67f30d3715, type: 3}
   - {fileID: 6845386314575682607, guid: 6f385ef5221974851a7237f04bbc09f8, type: 3}
+  pawnSlots: 6

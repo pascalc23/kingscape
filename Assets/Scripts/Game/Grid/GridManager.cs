@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Audio;
 using Common;
 using Game.Grid.Tiles;
 using Game.GridObjects;
 using Game.GridObjects.Obstacles;
-using Game.Levels;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -22,11 +22,12 @@ namespace Game.Grid
         /// <summary>
         /// Loads a new level.
         /// </summary>
-        public void LoadLevel(LevelSO level)
+        /// <param name="gridContainer">The container in which the levels grid is hosted. Expects 'Tiles' as children.</param>
+        public void LoadLevel(Transform gridContainer)
         {
             // Clear the old tiles and register the new level's tiles
             _tiles.Clear();
-            RegisterTiles(level.GetTiles());
+            RegisterTiles(GetTiles(gridContainer));
 
             // Reset everything else so the level is clear to play
             ResetLevel();
@@ -155,6 +156,11 @@ namespace Game.Grid
             AudioManager.Instance.OnPushItem();
 
             return true;
+        }
+
+        private List<Tile> GetTiles(Transform gridContainer)
+        {
+            return gridContainer.GetComponentsInChildren<Tile>().ToList();
         }
 
         private void MoveItem(GridItem gridItem, Vector2Int destination)

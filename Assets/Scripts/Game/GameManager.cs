@@ -24,6 +24,7 @@ namespace Game
 
         private GridManager _gridManager;
         private int _heartbeat;
+        private LevelSO _activeLevel;
 
         public float TimeBetweenHeartbeats => timeBetweenHeartbeats;
 
@@ -35,10 +36,13 @@ namespace Game
         /// <summary>
         /// Loads a new level.
         /// </summary>
-        public void LoadLevel(LevelSO level)
+        /// <param name="gridContainer">The container in which the levels grid is hosted. Expects 'Tiles' as children.</param>
+        public void LoadLevel(LevelSO level, Transform gridContainer)
         {
+            Debug.Log($"[{GetType().Name}] Loading Level '{level.title}'");
             Reset();
-            _gridManager.LoadLevel(level);
+            _gridManager.LoadLevel(gridContainer);
+            _activeLevel = level;
         }
 
         /// <summary>
@@ -46,6 +50,7 @@ namespace Game
         /// </summary>
         public void StartLevel(GridItem[] itemPrefabs)
         {
+            Debug.Log($"[{GetType().Name}] Starting level '{_activeLevel.title}'");
             if (!_gridManager.IsLevelReady()) throw new Exception("Cannot start level - Level is not ready");
             if (itemPrefabs == null || itemPrefabs.Length == 0) throw new Exception("Cannot start level - no item prefabs provided");
             GridItemSpawner.Instance.SetItemsToSpawn(itemPrefabs);
@@ -58,6 +63,7 @@ namespace Game
         /// </summary>
         public void ResetLevel()
         {
+            Debug.Log($"[{GetType().Name}] Resetting level '{_activeLevel.title}'");
             Reset();
             _gridManager.ResetLevel();
         }
@@ -70,6 +76,7 @@ namespace Game
 
         private void StartHeartbeat()
         {
+            Debug.Log($"[{GetType().Name}] Starting level heartbeat");
             _heartbeat = 0;
             StartCoroutine(Heartbeat());
         }
