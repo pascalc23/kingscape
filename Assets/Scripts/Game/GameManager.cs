@@ -26,6 +26,7 @@ namespace Game
         public UnityEvent<int> eventAfterHeartbeat = new();
 
         private GridManager _gridManager;
+        private GridItemSpawner _gridItemSpawner;
         private int _heartbeat;
         private Level _activeLevel;
 
@@ -49,7 +50,8 @@ namespace Game
         {
             Debug.Log($"[{GetType().Name}] Loading Level '{level.title}'");
             Reset();
-            _gridManager.LoadLevel(level.gridContainer);
+            _gridItemSpawner.LoadLevel(level);
+            _gridManager.LoadLevel(level);
             _gridManager.levelStartTile = level.startTile;
             _gridManager.levelFinishTile = level.endTile;
             _activeLevel = level;
@@ -60,7 +62,7 @@ namespace Game
         /// <summary>
         /// Starts the current level with the <paramref name="itemPrefabs"/> that the player selected in the given order.
         /// </summary>
-        public void StartLevel(GridItem[] itemPrefabs)
+        public void StartLevel(MovingGridItem[] itemPrefabs)
         {
             Debug.Log($"[{GetType().Name}] Starting level '{_activeLevel.title}'");
             if (!_gridManager.IsLevelReady()) throw new Exception("Cannot start level - Level is not ready");

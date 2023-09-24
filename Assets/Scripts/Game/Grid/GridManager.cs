@@ -6,6 +6,7 @@ using Common;
 using Game.Grid.Tiles;
 using Game.GridObjects;
 using Game.GridObjects.Obstacles;
+using Game.Levels;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -22,12 +23,11 @@ namespace Game.Grid
         /// <summary>
         /// Loads a new level.
         /// </summary>
-        /// <param name="gridContainer">The container in which the levels grid is hosted. Expects 'Tiles' as children.</param>
-        public void LoadLevel(Transform gridContainer)
+        public void LoadLevel(Level level)
         {
             // Clear the old tiles and register the new level's tiles
             _tiles.Clear();
-            RegisterTiles(GetTiles(gridContainer));
+            RegisterTiles(GetTiles(level.gridContainer));
 
             // Reset everything else so the level is clear to play
             ResetLevel();

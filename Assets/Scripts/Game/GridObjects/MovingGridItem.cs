@@ -5,8 +5,15 @@ namespace Game.GridObjects
 {
     public abstract class MovingGridItem : ActiveGridItem
     {
-        [SerializeField] protected Vector2Int forwardVector;
         [SerializeField] private GameObject model;
+
+        protected Vector2Int forwardVector;
+
+        public void Initialize(Vector2Int coordinates, Vector2Int forwardVector)
+        {
+            base.Initialize(coordinates);
+            this.forwardVector = forwardVector;
+        }
 
         public void ChangeDirection(Vector2Int direction)
         {
