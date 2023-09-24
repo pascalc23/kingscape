@@ -5660,9 +5660,6 @@ MonoBehaviour:
   availablePawns:
   - {fileID: 965224866733810470, guid: 746a5c8c4edc5463e8b7346ae73f5511, type: 3}
   - {fileID: 713869533234505035, guid: e2515f5d06133426486b483ea92b034d, type: 3}
-  - {fileID: 713869533234505035, guid: 0cbb4fe2f7f0944eda6dbeced91f9e9c, type: 3}
-  - {fileID: 713869533234505035, guid: 7548fba175f3c479e90465e12b387af6, type: 3}
-  - {fileID: 713869533234505035, guid: a8a45d0eef039461c9653a67f30d3715, type: 3}
   pawnSlots: 4
   startTile: {fileID: 632366650023952099}
   finishTile: {fileID: 4221387527363095557}
