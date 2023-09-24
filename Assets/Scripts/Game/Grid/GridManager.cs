@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Assets.Scripts.Game.GridObjects;
 using Audio;
 using Common;
 using Game.Grid.Tiles;

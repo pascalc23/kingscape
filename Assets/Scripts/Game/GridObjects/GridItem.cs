@@ -1,4 +1,3 @@
-using Assets.Scripts.Game.GridObjects;
 using Game.Grid;
 using UnityEngine;
 

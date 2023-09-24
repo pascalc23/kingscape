@@ -1,4 +1,3 @@
-using Assets.Scripts.Game.GridObjects;
 using Assets.Scripts.Grid.Tiles.Types;
 using Game.GridObjects;
 using TMPro;
