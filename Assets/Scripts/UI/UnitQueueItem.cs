@@ -10,10 +10,10 @@ namespace UI
         [SerializeField]
         private Image unitImage;
 
-        private GridItem prefabInQue;
+        private MovingGridItem prefabInQue;
         private Sprite originalSprite;
 
-        public GridItem PrefabInQue => prefabInQue;
+        public MovingGridItem PrefabInQue => prefabInQue;
 
         private void Awake()
         {

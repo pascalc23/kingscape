@@ -1,4 +1,5 @@
 using Game;
+using Game.Levels;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -42,6 +43,8 @@ namespace UI
         {
             gameManager.eventLevelComplete.AddListener(OnLevelComplete);
             gameManager.eventLevelFailed.AddListener(OnLevelFailed);
+
+            gameManager.onLevelLoaded.AddListener(OnLevelLoaded);
         }
 
         private void OnPlayButtonPressed()
@@ -99,6 +102,12 @@ namespace UI
             gameManager.ResetLevel();
 
             // TODO: Load next level
+        }
+
+        private void OnLevelLoaded(Level level)
+        {
+            unitSelection.OnLevelLoaded(level);
+            unitQueue.OnLevelLoaded(level);
         }
     }
 }
