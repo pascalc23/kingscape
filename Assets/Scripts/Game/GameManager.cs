@@ -18,6 +18,7 @@ namespace Game
 
         public bool GameRunning { get; private set; }
 
+        public UnityEvent<Level> onLevelLoaded = new UnityEvent<Level>();
         public UnityEvent eventLevelComplete = new();
         public UnityEvent eventLevelFailed = new();
 
@@ -52,6 +53,8 @@ namespace Game
             _gridManager.levelStartTile = level.startTile;
             _gridManager.levelFinishTile = level.endTile;
             _activeLevel = level;
+
+            onLevelLoaded?.Invoke(level);
         }
 
         /// <summary>

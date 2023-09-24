@@ -13,11 +13,11 @@ namespace UI
         [SerializeField]
         private Image unitImage;
         [SerializeField]
-        private GridItem prefabToSpawn;
+        private MovingGridItem prefabToSpawn;
 
         private GameObject duplicate;
 
-        public GridItem PrefabToSpawn => prefabToSpawn;
+        public MovingGridItem PrefabToSpawn => prefabToSpawn;
         public Sprite UnitSprite => unitImage.sprite;
 
         public bool Interactable;

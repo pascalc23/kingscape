@@ -1,3 +1,5 @@
+using Game.Levels;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -13,6 +15,14 @@ namespace UI
             foreach (var item in unitSelectionItems)
             {
                 item.Interactable = interactable;
+            }
+        }
+
+        public void OnLevelLoaded(Level level)
+        {
+            foreach (var item in unitSelectionItems)
+            {
+                item.gameObject.SetActive(level.availablePawns.Contains(item.PrefabToSpawn));
             }
         }
     }
