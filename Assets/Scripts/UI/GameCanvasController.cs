@@ -101,7 +101,7 @@ namespace UI
             unitSelection.SetUnitSelectionItemsInteractable(true);
             gameManager.ResetLevel();
 
-            // TODO: Load next level
+            gameManager.LoadNextLevel();
         }
 
         private void OnLevelLoaded(Level level)

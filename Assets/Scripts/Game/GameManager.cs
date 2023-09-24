@@ -43,6 +43,17 @@ namespace Game
             LoadLevel(levelOrder[levelIdx]);
         }
 
+        public void LoadNextLevel()
+        {
+            var nextLevelIdx = levelOrder.IndexOf(_activeLevel) + 1;
+            if (levelOrder.Count < nextLevelIdx)
+            {
+                Debug.LogError($"NextLevelIdx {nextLevelIdx} is larger than available levels - no more levels to load!");
+                return;
+            }
+            LoadLevel(levelOrder[nextLevelIdx]);
+        }
+
         /// <summary>
         /// Loads a new level.
         /// </summary>
@@ -51,6 +62,13 @@ namespace Game
         {
             Debug.Log($"[{GetType().Name}] Loading Level '{level.title}'");
             Reset();
+
+            level.levelCam.gameObject.SetActive(true);
+            if (_activeLevel != null)
+            {
+                _activeLevel.levelCam.gameObject.SetActive(false);
+            }
+
             _gridItemSpawner.LoadLevel(level);
             _gridManager.LoadLevel(level);
             _gridManager.levelStartTile = level.startTile;
