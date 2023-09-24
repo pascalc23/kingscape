@@ -5667,7 +5667,7 @@ MonoBehaviour:
   startTile: {fileID: 632366650023952099}
   finishTile: {fileID: 4221387527363095557}
   gridContainer: {fileID: 8584362205236449306}
-  startDirection: {x: 1, y: 0}
+  startDirection: {x: -1, y: 0}
 --- !u!1 &5795128111880714329
 GameObject:
   m_ObjectHideFlags: 0
