@@ -51,7 +51,7 @@ namespace Game.GridObjects
 
         private void AnimateUpdatePosition(Vector3 deltaPosition)
         {
-            transform.DOMove(transform.localPosition + deltaPosition, GameManager.Instance.TimeBetweenHeartbeats * animTimeScale);
+            transform.DOMove(transform.position + deltaPosition, GameManager.Instance.TimeBetweenHeartbeats * animTimeScale);
         }
 
         protected Vector2Int GetCoordinatesFromWorldPosition()
