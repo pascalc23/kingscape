@@ -38,7 +38,7 @@ namespace Game.GridObjects
             }
             else
             {
-                transform.position = new Vector3(Coordinates.x, 0, Coordinates.y);
+                transform.position = new Vector3(Coordinates.x, transform.position.y, Coordinates.y);
             }
         }
 
