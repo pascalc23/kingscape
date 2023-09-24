@@ -90,7 +90,7 @@ namespace Audio
 
         private void DeactivateOnDevelopment()
         {
-#if UNITY_EDITOR && NO_AUDIO
+#if UNITY_EDITOR && NO_SFX
             _audioSource.volume = 0f;
 #endif
         }
