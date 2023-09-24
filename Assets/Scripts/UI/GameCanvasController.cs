@@ -1,101 +1,104 @@
-using Assets.Scripts.Game;
+using Game;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class GameCanvasController : MonoBehaviour
+namespace UI
 {
-    [Header("Ingame controls")]
-    [SerializeField]
-    private UnitSelection unitSelection;
-    [SerializeField]
-    private UnitQueue unitQueue;
-
-    [SerializeField]
-    private Button playButton;
-
-    [Header("Level Complete/Failed")]
-    [SerializeField]
-    private GameObject levelCompleteFailedUI;
-    [SerializeField]
-    private GameObject levelCompleteText;
-    [SerializeField]
-    private GameObject levelFailedText;
-    [SerializeField]
-    private Button retryLevel;
-    [SerializeField]
-    private Button nextLevel;
-
-    private GameManager gameManager => GameManager.Instance;
-
-    private void Awake()
+    public class GameCanvasController : MonoBehaviour
     {
-        levelCompleteFailedUI.gameObject.SetActive(false);
+        [Header("Ingame controls")]
+        [SerializeField]
+        private UnitSelection unitSelection;
+        [SerializeField]
+        private UnitQueue unitQueue;
 
-        playButton.onClick.AddListener(OnPlayButtonPressed);
-        retryLevel.onClick.AddListener(OnRetryLevelPressed);
-        nextLevel.onClick.AddListener(OnNextLevelPressed);
-    }
+        [SerializeField]
+        private Button playButton;
 
-    private void Start()
-    {
-        gameManager.eventLevelComplete.AddListener(OnLevelComplete);
-        gameManager.eventLevelFailed.AddListener(OnLevelFailed);
-    }
+        [Header("Level Complete/Failed")]
+        [SerializeField]
+        private GameObject levelCompleteFailedUI;
+        [SerializeField]
+        private GameObject levelCompleteText;
+        [SerializeField]
+        private GameObject levelFailedText;
+        [SerializeField]
+        private Button retryLevel;
+        [SerializeField]
+        private Button nextLevel;
 
-    private void OnPlayButtonPressed()
-    {
-        var queue = unitQueue.GetQueue();
+        private GameManager gameManager => GameManager.Instance;
 
-        bool hasKing = false;
-        foreach (var item in queue)
+        private void Awake()
         {
-            if (item == null)
-                continue;
-            hasKing |= item.name.ToLower().Contains("king");
+            levelCompleteFailedUI.gameObject.SetActive(false);
+
+            playButton.onClick.AddListener(OnPlayButtonPressed);
+            retryLevel.onClick.AddListener(OnRetryLevelPressed);
+            nextLevel.onClick.AddListener(OnNextLevelPressed);
         }
 
-        if (!hasKing)
+        private void Start()
         {
-            Debug.Log("At least one unit needs to be a king unit");
-            return;
+            gameManager.eventLevelComplete.AddListener(OnLevelComplete);
+            gameManager.eventLevelFailed.AddListener(OnLevelFailed);
         }
 
-        gameManager.StartLevel(unitQueue.GetQueue());
-        unitSelection.SetUnitSelectionItemsInteractable(false);
-        playButton.interactable = false;
-    }
+        private void OnPlayButtonPressed()
+        {
+            var queue = unitQueue.GetQueue();
 
-    private void OnLevelComplete()
-    {
-        levelCompleteFailedUI.SetActive(true);
-        levelCompleteText.SetActive(true);
-        levelFailedText.SetActive(false);
-        nextLevel.gameObject.SetActive(true);
-    }
+            bool hasKing = false;
+            foreach (var item in queue)
+            {
+                if (item == null)
+                    continue;
+                hasKing |= item.name.ToLower().Contains("king");
+            }
 
-    private void OnLevelFailed()
-    {
-        levelCompleteFailedUI.SetActive(true);
-        levelCompleteText.SetActive(false);
-        levelFailedText.SetActive(true);
-        nextLevel.gameObject.SetActive(false);
-    }
+            if (!hasKing)
+            {
+                Debug.Log("At least one unit needs to be a king unit");
+                return;
+            }
 
-    private void OnRetryLevelPressed()
-    {
-        levelCompleteFailedUI.SetActive(false);
-        playButton.interactable = true;
-        unitSelection.SetUnitSelectionItemsInteractable(true);
-        gameManager.ResetLevel();
-    }
+            gameManager.StartLevel(unitQueue.GetQueue());
+            unitSelection.SetUnitSelectionItemsInteractable(false);
+            playButton.interactable = false;
+        }
 
-    private void OnNextLevelPressed()
-    {
-        levelCompleteFailedUI.SetActive(false);
-        playButton.interactable = true;
-        unitSelection.SetUnitSelectionItemsInteractable(true);
-        gameManager.ResetLevel();
+        private void OnLevelComplete()
+        {
+            levelCompleteFailedUI.SetActive(true);
+            levelCompleteText.SetActive(true);
+            levelFailedText.SetActive(false);
+            nextLevel.gameObject.SetActive(true);
+        }
 
-        // TODO: Load next level
+        private void OnLevelFailed()
+        {
+            levelCompleteFailedUI.SetActive(true);
+            levelCompleteText.SetActive(false);
+            levelFailedText.SetActive(true);
+            nextLevel.gameObject.SetActive(false);
+        }
+
+        private void OnRetryLevelPressed()
+        {
+            levelCompleteFailedUI.SetActive(false);
+            playButton.interactable = true;
+            unitSelection.SetUnitSelectionItemsInteractable(true);
+            gameManager.ResetLevel();
+        }
+
+        private void OnNextLevelPressed()
+        {
+            levelCompleteFailedUI.SetActive(false);
+            playButton.interactable = true;
+            unitSelection.SetUnitSelectionItemsInteractable(true);
+            gameManager.ResetLevel();
+
+            // TODO: Load next level
+        }
     }
 }

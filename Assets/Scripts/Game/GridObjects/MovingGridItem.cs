@@ -1,8 +1,7 @@
-using DG.Tweening;
-using Assets.Scripts.Audio;
+using Audio;
 using UnityEngine;
 
-namespace Assets.Scripts.Game.GridObjects
+namespace Game.GridObjects
 {
     public abstract class MovingGridItem : ActiveGridItem
     {

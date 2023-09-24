@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Game.GridObjects.Obstacles
+namespace Game.GridObjects.Obstacles
 {
     public class Obstacle : InactiveGridItem
     {

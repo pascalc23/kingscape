@@ -1,36 +1,39 @@
-using Assets.Scripts.Game.GridObjects;
+using Game.GridObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UnitQueueItem : MonoBehaviour, IDropHandler, IPointerClickHandler
+namespace UI
 {
-    [SerializeField]
-    private Image unitImage;
-
-    private GridItem prefabInQue;
-    private Sprite originalSprite;
-
-    public GridItem PrefabInQue => prefabInQue;
-
-    private void Awake()
+    public class UnitQueueItem : MonoBehaviour, IDropHandler, IPointerClickHandler
     {
-        originalSprite = unitImage.sprite;
-    }
+        [SerializeField]
+        private Image unitImage;
 
-    public void OnDrop(PointerEventData eventData)
-    {
-        if (eventData.pointerDrag != null)
+        private GridItem prefabInQue;
+        private Sprite originalSprite;
+
+        public GridItem PrefabInQue => prefabInQue;
+
+        private void Awake()
         {
-            var item = eventData.pointerDrag.GetComponent<UnitSelectionItem>();
-            prefabInQue = item.PrefabToSpawn;
-            unitImage.sprite = item.UnitSprite;
+            originalSprite = unitImage.sprite;
         }
-    }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        unitImage.sprite = originalSprite;
-        prefabInQue = null;
+        public void OnDrop(PointerEventData eventData)
+        {
+            if (eventData.pointerDrag != null)
+            {
+                var item = eventData.pointerDrag.GetComponent<UnitSelectionItem>();
+                prefabInQue = item.PrefabToSpawn;
+                unitImage.sprite = item.UnitSprite;
+            }
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            unitImage.sprite = originalSprite;
+            prefabInQue = null;
+        }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Game.GridObjects.Pawns
+namespace Game.GridObjects.Pawns
 {
     public class RedirectPawn : MovingGridItem, IInteractable
     {

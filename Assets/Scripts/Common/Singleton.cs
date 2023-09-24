@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Common
+namespace Common
 {
     /// <summary>
     /// A static instance is similar to a singleton, but instead of destroying any new instances it overwrites the current instance. This is helpful for resetting the state.

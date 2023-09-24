@@ -1,9 +1,10 @@
 using Assets.Scripts.Game.GridObjects;
 using Assets.Scripts.Grid.Tiles.Types;
+using Game.GridObjects;
 using TMPro;
 using UnityEngine;
 
-namespace Assets.Scripts.Game.Grid.Tiles
+namespace Game.Grid.Tiles
 {
     public class Tile : GridItemBase
     {

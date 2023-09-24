@@ -1,14 +1,15 @@
 using System;
 using System.Collections.Generic;
-using Assets.Scripts.Audio;
-using Assets.Scripts.Common;
-using Assets.Scripts.Game.Grid.Tiles;
 using Assets.Scripts.Game.GridObjects;
-using Assets.Scripts.Game.GridObjects.Obstacles;
+using Audio;
+using Common;
+using Game.Grid.Tiles;
+using Game.GridObjects;
+using Game.GridObjects.Obstacles;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-namespace Assets.Scripts.Game.Grid
+namespace Game.Grid
 {
     public class GridManager : Singleton<GridManager>
     {

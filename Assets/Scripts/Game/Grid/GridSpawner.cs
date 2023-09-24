@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Assets.Scripts.Game.Grid.Tiles;
+using Game.Grid.Tiles;
 using UnityEngine;
 
-namespace Assets.Scripts.Game.Grid
+namespace Game.Grid
 {
     public class GridSpawner : MonoBehaviour
     {

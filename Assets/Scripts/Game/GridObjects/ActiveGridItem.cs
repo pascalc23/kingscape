@@ -1,8 +1,7 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
-namespace Assets.Scripts.Game.GridObjects
+namespace Game.GridObjects
 {
     /// <summary>
     /// An active grid item is something that has a place on the grid and is actively participating (e.g. doing something on heartbeat)

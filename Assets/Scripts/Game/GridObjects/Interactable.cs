@@ -1,4 +1,4 @@
-namespace Assets.Scripts.Game.GridObjects
+namespace Game.GridObjects
 {
     public interface IInteractable
     {

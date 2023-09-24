@@ -1,11 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Assets.Scripts.Common;
+using Common;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.Scripts.Audio
+namespace Audio
 {
     [RequireComponent(typeof(AudioSource))]
     public class AudioManager : Singleton<AudioManager>

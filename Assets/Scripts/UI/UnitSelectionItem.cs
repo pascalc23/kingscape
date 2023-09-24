@@ -1,58 +1,61 @@
-using Assets.Scripts.Game.GridObjects;
+using Game.GridObjects;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class UnitSelectionItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+namespace UI
 {
-    [SerializeField]
-    private Transform container;
-    [Space]
-    [SerializeField]
-    private Image unitImage;
-    [SerializeField]
-    private GridItem prefabToSpawn;
-
-    private GameObject duplicate;
-
-    public GridItem PrefabToSpawn => prefabToSpawn;
-    public Sprite UnitSprite => unitImage.sprite;
-
-    public bool Interactable;
-
-    public void OnBeginDrag(PointerEventData eventData)
+    public class UnitSelectionItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
-        if (!Interactable)
+        [SerializeField]
+        private Transform container;
+        [Space]
+        [SerializeField]
+        private Image unitImage;
+        [SerializeField]
+        private GridItem prefabToSpawn;
+
+        private GameObject duplicate;
+
+        public GridItem PrefabToSpawn => prefabToSpawn;
+        public Sprite UnitSprite => unitImage.sprite;
+
+        public bool Interactable;
+
+        public void OnBeginDrag(PointerEventData eventData)
         {
-            return;
+            if (!Interactable)
+            {
+                return;
+            }
+
+            duplicate = Instantiate(gameObject, container);
+            (duplicate.transform as RectTransform).sizeDelta = (transform as RectTransform).sizeDelta;
+
+            foreach (var item in duplicate.GetComponentsInChildren<Graphic>())
+            {
+                item.raycastTarget = false;
+            }
         }
 
-        duplicate = Instantiate(gameObject, container);
-        (duplicate.transform as RectTransform).sizeDelta = (transform as RectTransform).sizeDelta;
-
-        foreach (var item in duplicate.GetComponentsInChildren<Graphic>())
+        public void OnDrag(PointerEventData eventData)
         {
-            item.raycastTarget = false;
-        }
-    }
+            if (!Interactable || duplicate == null)
+            {
+                return;
+            }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        if (!Interactable || duplicate == null)
-        {
-            return;
+            duplicate.transform.position = eventData.position;
         }
 
-        duplicate.transform.position = eventData.position;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        if (!Interactable || duplicate == null)
+        public void OnEndDrag(PointerEventData eventData)
         {
-            return;
-        }
+            if (!Interactable || duplicate == null)
+            {
+                return;
+            }
 
-        Destroy(duplicate);
+            Destroy(duplicate);
+        }
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Assets.Scripts.Game.GridObjects.Obstacles
+namespace Game.GridObjects.Obstacles
 {
     [CreateAssetMenu(fileName = "Obstacle Type", menuName = "Kingscape/Obstacle Type", order = 2)]
     public class ObstacleTypeSO : ScriptableObject

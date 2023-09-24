@@ -1,16 +1,19 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UnitSelection : MonoBehaviour
+namespace UI
 {
-    [SerializeField]
-    private List<UnitSelectionItem> unitSelectionItems;
-
-    public void SetUnitSelectionItemsInteractable(bool interactable)
+    public class UnitSelection : MonoBehaviour
     {
-        foreach (var item in unitSelectionItems)
+        [SerializeField]
+        private List<UnitSelectionItem> unitSelectionItems;
+
+        public void SetUnitSelectionItemsInteractable(bool interactable)
         {
-            item.Interactable = interactable;
+            foreach (var item in unitSelectionItems)
+            {
+                item.Interactable = interactable;
+            }
         }
     }
 }

@@ -1,13 +1,14 @@
 using System;
 using System.Collections;
-using Assets.Scripts.Audio;
-using Assets.Scripts.Common;
-using Assets.Scripts.Game.Grid;
 using Assets.Scripts.Game.GridObjects;
+using Audio;
+using Common;
+using Game.Grid;
+using Game.GridObjects;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Assets.Scripts.Game
+namespace Game
 {
     public class GameManager : Singleton<GameManager>
     {

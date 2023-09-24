@@ -1,8 +1,8 @@
-using Assets.Scripts.Game.Grid;
 using DG.Tweening;
+using Game.Grid;
 using UnityEngine;
 
-namespace Assets.Scripts.Game.GridObjects
+namespace Game.GridObjects
 {
     /// <summary>
     /// A grid item is something that has a place (coordinates) on the grid.  
